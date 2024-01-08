@@ -1,0 +1,100 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "overview" %}
+
+{% block hero %}
+  {% include './_finance_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Your tasks</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/finance">My tasks</a>
+            </li>
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/finance-all">Everyone's tasks</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+            <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Action</th>
+                <th scope="col" class="govuk-table__header">Details</th>
+                <th scope="col" class="govuk-table__header">Assigned to</th>
+                <th scope="col" class="govuk-table__header">Due</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <a href="/finance-project" class="govuk-link">Monthly project update</a>
+                </th>
+                <td class="govuk-table__cell">Coppice School - Science block refurb</td>
+                <td class="govuk-table__cell">Jill Smith</td>
+                <td class="govuk-table__cell">29 Jan 2024
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2 govuk-!-margin-top-5 ">1 active application</h2>
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <div class="dfe-grid-container dfe-grid-container--wider govuk-!-margin-top-7">
+
+        <div class="dfe-card">
+          <div class="dfe-card-container">
+            <p class="govuk-body govuk-body-s govuk-!-margin-bottom-0">BEE-2023-5824</p>
+            <h2 class="govuk-heading-m">
+              <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="/finance-application">School Beehives Grant</a>
+            </h2>
+            <div class="card-meta">
+
+              <p class="govuk-body">Grant application for training and installation of beehives on school premises.</p>
+              <p class="govuk-body govuk-body-s govuk-!-margin-bottom-3">Submitted 17 September 2023</p>
+
+            </div>
+            <div class="card-progress-bar">
+              <div class="govuk-!-font-weight-bold">Application is being assessed</div>
+              <div class="bar-settings">
+                <div class="bar-bg"></div>
+
+                <div class="bar-progress" style="width: 75%;">
+                  <div class="bar-ball"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      {% include './_cta_finance_eligibility.html'%}
+    </div>
+
+  </div>
+
+{% endblock %}

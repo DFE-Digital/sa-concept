@@ -1,0 +1,53 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "timescales" %}
+
+{% block hero %}
+  {% include './_finance_cif_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Timescales</h2>
+      <p class="govuk-body">Adhering to the specified deadlines is crucial.</p>
+     <p class="govuk-body">The application process has strict cut-off times and all we  with all supporting documents.</p>
+
+
+ <h3 class="govuk-heading-m">Application timeline</h3>
+
+      <div class="dfe-timeline">
+        <ol>
+            <li class="done">
+            <h3 class="govuk-heading-s">Application window opens</h3>
+            <p class="govuk-body">Applications can be started from Wednesday, 1 November 2023.</p>
+          </li>
+          <li class="doing">
+            <h3 class="govuk-heading-s">Submit application</h3>
+            <p class="govuk-body">Complete application with supporting information by Friday, 19 January 2024.</p>
+          </li>
+          <li class="todo">
+            <h3 class="govuk-heading-s">Application assessment</h3>
+            <p class="govuk-body">Usually takes 3 weeks from receipt of application.</p>
+          </li>
+          <li class="todo">
+            <h3 class="govuk-heading-s">Payment</h3>
+            <p class="govuk-body">The funds will be paid by the end of March 2024.</p>
+          </li>
+        </ol>
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-half"></div>
+
+  </div>
+
+{% endblock %}

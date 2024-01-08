@@ -1,0 +1,36 @@
+<div class="dfe-page-header">
+    <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+        <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full">
+<span class="govuk-caption-l govuk-!-margin-top-5">Arden Multi Academy Trust</span>
+                <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Funding</h1>
+
+                <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+                    <ul class="app-sub-navigation__list">
+                        <li class="app-sub-navigation__item">
+                            <a class="app-sub-navigation__link" {% if view === 'overview' %} aria-current="page" {% endif %} href="/finance">Overview</a>
+                        </li>
+                        <li class="app-sub-navigation__item">
+                            <a class="app-sub-navigation__link"  {% if view === 'eligibility' %} aria-current="page" {% endif %}href="/finance-eligibility">Eligible funding</a>
+                        </li>
+                        <li class="app-sub-navigation__item">
+                            <a class="app-sub-navigation__link"  {% if view === 'applications' %} aria-current="page" {% endif %}href="/finance-applications">Applications</a>
+                        </li>
+
+                        <li class="app-sub-navigation__item">
+                            <a class="app-sub-navigation__link"  {% if view === 'projects' %} aria-current="page" {% endif %}href="/finance-projects">Project updates</a>
+                        </li>
+                        <li class="app-sub-navigation__item">
+                            <a class="app-sub-navigation__link"  {% if view === 'payments' %} aria-current="page" {% endif %}href="/finance-payments">Payments</a>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

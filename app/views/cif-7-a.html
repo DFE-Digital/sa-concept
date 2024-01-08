@@ -1,0 +1,94 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "declarations" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">   <div class="govuk-notification-banner " role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Notifications sent
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <h3 class="govuk-notification-banner__heading">
+      We've emailed Jane and Gurpreet to let them know they need to approve their pupil's funding application.
+    </h3>
+    <p>This has also been added as a task on the One School Account dashboard.</p>
+   
+  </div>
+</div>
+      <h2 class="govuk-heading-l">Declarations</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+     
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Pupil name</th>
+            <th scope="col" class="govuk-table__header">Date of birth</th>
+            <th scope="col" class="govuk-table__header">School name</th>
+            <th scope="col" class="govuk-table__header">Business manager</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr> 
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Edward Smith</a></td>
+            <td class="govuk-table__cell">18/06/2008</td>
+            <td class="govuk-table__cell">Coppice School</td>
+            <td class="govuk-table__cell">Jane Dudley</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">Waiting approval</strong></td>
+            </tr>
+             <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Sanjeev Hussan</a></td>
+            <td class="govuk-table__cell">27/03/2008</td>
+            <td class="govuk-table__cell">Coppice School</td>
+            <td class="govuk-table__cell">Jane Dudley</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">Waiting approval</strong></td>
+            </tr>
+             <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Kelly Jones</a></td>
+            <td class="govuk-table__cell">22/04/2008</td>
+            <td class="govuk-table__cell">Tudor Science Academy</td>
+            <td class="govuk-table__cell">Gurpreet Bassi</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag">Waiting approval</strong></td>
+            </tr>
+            </tbody>
+            </table>
+           
+      
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Guidance for how to calculate the funding.</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

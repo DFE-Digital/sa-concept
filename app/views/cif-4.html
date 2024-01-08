@@ -1,0 +1,85 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "pupils" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Pupil information</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      {% if pupilList | length > 0 %}
+
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">Date of birth</th>
+      <th scope="col" class="govuk-table__header">School</th>
+      <th scope="col" class="govuk-table__header">Action</th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+      {% for pupil in pupilList %}  
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ pupil.pupilName }}</td>
+        <td class="govuk-table__cell">{{ pupil.dobday }}/{{ pupil.dobmonth }}/{{ pupil.dobyear }}</td>
+        <td class="govuk-table__cell">{{ pupil.organisation }}</td>
+        <td class="govuk-table__cell"><a href="">Edit</a> | <a href="">Remove</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+   <p class="govuk-body">
+          <a href="/cif-4-add" class="govuk-link govuk-link--no-visited-state">Add another pupil</a>
+        </p>
+
+
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+      {% else %}
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body">No pupils have been added.</p>
+        </div>
+        <p class="govuk-body">
+          <a href="/cif-4-add" class="govuk-link govuk-link--no-visited-state">Add a pupil</a>
+        </p>
+      {% endif %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Guidance for how to calculate the funding.</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

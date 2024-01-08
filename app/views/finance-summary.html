@@ -1,0 +1,44 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Your funding applications</h2>
+
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Application</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Submitted</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <a href="/finance-summary">School capital funding - 2023 to 2024</a>
+                </th>
+                <td class="govuk-table__cell govuk-table__cell--numeric">18 July 2023</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <strong class="govuk-tag govuk-tag--amber">Processing</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-quarter"></div>
+  </div>
+
+{% endblock %}

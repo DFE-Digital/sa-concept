@@ -1,0 +1,128 @@
+{% extends "layouts/public.html" %}
+
+{% set selectedNav = "Features" %}
+{% set pageName = "Features" %}
+{% set pageDescription = "" %}
+
+{% block hero %}
+
+    <section class="product-page-intro">
+        <div class="govuk-width-container ">
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <img src="/assets/images/inline-logo-white.png" alt="Department for Education" class="default-logo" style="max-height: 50px;">
+                </div>
+                <div class="govuk-grid-column-one-third"></div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-padding-top-7">
+
+                <div class="govuk-grid-column-two-thirds">
+
+                    <h1 class="">One School Account</h1>
+                    <p class="govuk-body">The One School Account from the<br/> Department for Education enables you to access all the services for your school or college in one place.</p>
+
+                    <div class="button-container">
+                        <p class="govuk-!-margin-bottom-0">
+                            <a href="/sso" role="button" draggable="false" class="govuk-button product-page-button button-container__button govuk-!-margin-right-3" data-module="govuk-button">
+  Sign in with DfE One Account
+</a>
+
+                            <span class="link">or <a class="govuk-link govuk-link--inverse" href="#">register for an account</a>.</span></p>
+                    </div>
+
+                </div>
+                <div class="govuk-grid-column-one-third" style="text-align: right;">
+
+                    <img src="/assets/images/verified.png" style=" max-width: 55%;
+    margin-top: 25px;
+    text-align: right;">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+            <h2 class="govuk-heading-xl govuk-!-margin-bottom-2">Everything in one place</h2>
+
+            <div class="dfe-grid-container dfe-grid-container--wider govuk-!-margin-top-7 dfe-home-cards-homepage">
+
+                <div class="dfe-home-card" style="text-align: center;">
+                    <picture>
+                        <img src="/assets/images/f_01.png" alt="" >
+                    </picture>
+                    <div class="dfe-home-card-container">
+                        <h2 class="govuk-heading-m">
+                            <a href="#" class="govuk-link govuk-link--no-visited-state dfe-home-card-link--header">All services on any device</a>
+                        </h2>
+                        <p>Access all your DfE services in one place, on any device.</p>
+                    </div>
+                </div>
+
+                <div class="dfe-home-card" style="text-align: center;">
+                    <picture>
+                        <img src="/assets/images/f_02.png" alt="" >
+                    </picture>
+                    <div class="dfe-home-card-container">
+                        <h2 class="govuk-heading-m">
+                            <a href="#" class="govuk-link govuk-link--no-visited-state dfe-home-card-link--header">Data and trends</a>
+                        </h2>
+                        <p>View all your school data, trends and compare against other schools.</p>
+                    </div>
+                </div>
+
+                <div class="dfe-home-card" style="text-align: center;">
+                    <picture>
+                        <img src="/assets/images/f_03.png" alt="" >
+                    </picture>
+                    <div class="dfe-home-card-container">
+                        <h2 class="govuk-heading-m">
+                            <a href="#" class="govuk-link govuk-link--no-visited-state dfe-home-card-link--header">Intelligent</a>
+                        </h2>
+                        <p>Tasks, information all centred around you and your school.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="govuk-grid-column-full">
+
+            <div class="dfe-demo-panel govuk-!-margin-top-9">
+
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-one-half">
+
+                        <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Smart control</h2>
+                        <p class="govuk-body">With One School Account, the tasks you need to do, the information you need is made available to you when you need it.</p>
+
+                        <h3 class="govuk-heading-m  govuk-!-margin-bottom-2">Data-driven</h3>
+                        <p class="govuk-body">Using real-time data to provide insights to you about your school.</p>
+
+                        <h3 class="govuk-heading-m  govuk-!-margin-bottom-2">New workflows</h3>
+                        <p class="govuk-body">Tasks and actions using new workflows, with better visibility of outcomes.</p>
+
+                        <h3 class="govuk-heading-m  govuk-!-margin-bottom-2">AI powered</h3>
+                        <p class="govuk-body">Using modern technology to learn what you need and get essential information to you when you need it.</p>
+
+                    </div>
+                    <div class="govuk-grid-column-one-half" style="text-align: center;" >
+                        <picture>
+                            <img src="/assets/images/img-05.png" alt="" style="max-width: 75%; text-align: center;" >
+                        </picture>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    {% endblock %}

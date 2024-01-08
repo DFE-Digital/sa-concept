@@ -1,0 +1,45 @@
+{
+  "name": "school_account_prototype",
+  "version": "0.0.1",
+  "description": "A prototype built by DesignOps to demonstrate a future DFE School Account service",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "nodemon",
+    "start-browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'public/**/*.*'",
+    "dev": "npm-run-all --parallel start start-browser-sync"
+  },
+  "author": "Andy Jones - DesignOps - Department for Education",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-mssql-v2": "^5.0.0",
+    "dfe-frontend-alpha": "^1.0.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "govuk-frontend": "^5.0.0",
+    "marked": "^11.1.0",
+    "mssql": "^10.0.1",
+    "notifications-node-client": "^7.0.6",
+    "nunjucks": "^3.2.4",
+    "nunjucks-date-filter": "^0.1.1",
+    "nunjucks-markdown": "^2.0.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-copy": "^4.0.1",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.1.4",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^5.0.0",
+    "nodemon": "^3.0.2",
+    "npm-run-all": "^4.1.5"
+  }
+}

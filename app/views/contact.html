@@ -1,0 +1,47 @@
+{% extends "layouts/public.html" %}
+
+{% set selectedNav = "Contact us" %}
+{% set pageName = "Contact us" %}
+{% set pageDescription = "Contact the Department for Education DesignOps team about this service." %}
+{% set show_breadcrumbs = true %}
+
+{% block breadcrumbs %}
+    <div class="govuk-breadcrumbs">
+        <ol class="govuk-breadcrumbs__list">
+            <li class="govuk-breadcrumbs__list-item">
+                <a class="govuk-breadcrumbs__link" href="#">DfE Services</a>
+            </li>
+            <li class="govuk-breadcrumbs__list-item">Contact us</li>
+
+        </ol>
+    </div>
+    {% endblock%}
+
+    {% block content %}
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <h1 class="govuk-heading-l">{{pageName}}</h1>
+            </div>
+        </div>
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p>The DesignOps team in the Department for Education are running this project and the private beta to test the features and functionality for this service.</p>
+                <p>This code for this service is published in a <a href="https://github.com/DFE-Digital/book-manage-assure-services" class="govuk-link">public GitHub repository</a> which accepts contributions.</p>
+
+                <p>You can contact the DesignOps team in the following ways:</p>
+
+                <ul class="govuk-list">
+                    <li>
+                        <strong>Email:</strong>
+                        <a href="mailto:design.ops@education.gov.uk">design.ops@education.gov.uk</a>
+                    </li>
+                    <li>
+                        <strong>Slack:</strong>  Cross-government Slack <a href="https://ukgovernmentdigital.slack.com/archives/C04GXQ0320Z">#DfE-Design-Ops channel</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    {% endblock %}

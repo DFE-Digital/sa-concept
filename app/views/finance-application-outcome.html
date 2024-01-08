@@ -1,0 +1,91 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "outcome" %}
+
+{% block hero %}
+  <div class="dfe-page-header">
+    <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+      <a href="/finance" class="govuk-back-link">Back to your applications</a>
+
+      <div class="govuk-grid-row govuk-!-margin-top-4">
+
+        <div class="govuk-grid-column-full">
+
+          <span class="govuk-caption-l">Application</span>
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">School capital funding 2023 to 2024</h1>
+
+          <table class="govuk-table govuk-!-margin-bottom-5">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Amount</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <strong class="govuk-tag">Processing</strong>
+                </th>
+                <td class="govuk-table__cell">£67,597</td>
+                <td class="govuk-table__cell">SCF-2023-5824</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+            <ul class="app-sub-navigation__list">
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link" {% if view === 'overview' %} aria-current="page" {% endif %} href="/finance-application">Overview and actions</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'eligibility' %} aria-current="page" {% endif %}href="/finance-application-eligibility">Eligibility</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'application' %} aria-current="page" {% endif %}href="/finance-application-detail">Application</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'submission' %} aria-current="page" {% endif %}href="/finance-application-approval">Approvals and submission</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'outcome' %} aria-current="page" {% endif %}href="/finance-application-outcome">Outcome</a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter">
+
+      {% include './_app_timeline.html' %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Application outcome</h2>
+
+      <p>The application is being processed by ESFA.</p>
+      <p>Timescales for an outcome are around 21 working days from submission. You can expect an outcome by 5 November 2023.</p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

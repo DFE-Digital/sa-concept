@@ -1,0 +1,47 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "eligibility" %}
+
+{% block hero %}
+  {% include './_finance_cif_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Eligibility</h2>
+
+      <div class="dfe-eligibility-panel eligible">
+
+        <div class="icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="name">
+          <h2 class="govuk-heading-m govuk-!-margin-bottom-1">You can apply</h2>
+          <p  class="govuk-body">You're elibible to apply for the Future Digital Leaders Fund.</p>
+          <p  class="govuk-body  govuk-!-margin-bottom-0">You have until 12pm on 17 January 2024 to submit your full application</p>
+        </div>
+      </div>
+
+      <h3 class="govuk-heading-m">General criteria</h3>
+
+      <p class="govuk-body">To apply, your school or institution must meet the eligibility criteria for the Future Digital Leaders Fund:</p>
+     <ul class="govuk-list govuk-list--bullet">
+        <li>have pupils who are 15 or older</li>
+    </ul>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-half"></div>
+
+  </div>
+
+{% endblock %}

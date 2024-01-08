@@ -1,0 +1,244 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "submission" %}
+
+{% block hero %}
+  <div class="dfe-page-header">
+    <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+      <a href="/finance" class="govuk-back-link">Back to your applications</a>
+
+      <div class="govuk-grid-row govuk-!-margin-top-4">
+
+        <div class="govuk-grid-column-full">
+
+          <span class="govuk-caption-l">Application</span>
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">School capital funding 2023 to 2024</h1>
+
+          <table class="govuk-table govuk-!-margin-bottom-5">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Amount</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <strong class="govuk-tag">Processing</strong>
+                </th>
+                <td class="govuk-table__cell">£67,597</td>
+                <td class="govuk-table__cell">SCF-2023-5824</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+            <ul class="app-sub-navigation__list">
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link" {% if view === 'overview' %} aria-current="page" {% endif %} href="/finance-application">Overview and actions</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'eligibility' %} aria-current="page" {% endif %}href="/finance-application-eligibility">Eligibility</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'application' %} aria-current="page" {% endif %}href="/finance-application-detail">Application</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'submission' %} aria-current="page" {% endif %}href="/finance-application-approval">Approvals and submission</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'outcome' %} aria-current="page" {% endif %}href="/finance-application-outcome">Outcome</a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter">
+
+      {% include './_app_timeline.html' %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Approvals and submission</h2>
+
+      <p>Approval from the leadership of the 2 schools named on the application.</p>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Coppice School approval</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          URN
+        </dt>
+              <dd class="govuk-summary-list__value">
+          1001673
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Wood Lane<br/>London<br/>WC1A 1JH
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Approved by
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Kelly Edwards
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Role
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Chief Executive Officer
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Approval date
+        </dt>
+              <dd class="govuk-summary-list__value">
+          16 September 2023 at 9:46am
+        </dd>
+
+            </div>
+
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Oakwood School approval</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          URN
+        </dt>
+              <dd class="govuk-summary-list__value">
+          1023531
+ 
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Riverbank Street<br/>London<br/>E16 1DA
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Approved by
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Jake Sully
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Role
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Chief Executive Officer
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Approval date
+        </dt>
+              <dd class="govuk-summary-list__value">
+          16 September 2023 at 6:39pm
+        </dd>
+
+            </div>
+
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Application submission</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Submitted by
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Jill Smith
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Role
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Trust Finance and Compliance Manager
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Submitted date
+        </dt>
+              <dd class="govuk-summary-list__value">
+          17 September 2023 at 9:32am
+        </dd>
+
+            </div>
+
+          </dl>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

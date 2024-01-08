@@ -1,0 +1,177 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "" %}
+{% set pageName = "" %}
+{% set pageDescription = "" %}
+{% set show_breadcrumbs = true %}
+
+{% set hide_nav = true %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+            <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Welcome back, Jill</h1>
+            <p class="govuk-body govuk-!-font-size-16 dfe-admin-panel--body-sub">You last signed in on 21 December 2023</p>
+
+            <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-5">Summary</h2>
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Updates and notices</h2>
+
+                </div>
+                <div class="govuk-summary-card__content"></div>
+            </div>
+
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-5">Manage a trust</h2>
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Arden Multi Academy Trust</h2>
+                    <ul class="govuk-summary-card__actions">
+
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="/trust">Manage<span class="govuk-visually-hidden"> trust</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+          Schools in trust
+        </dt>
+                            <dd class="govuk-summary-list__value">
+          7
+        </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+          UID
+        </dt>
+                            <dd class="govuk-summary-list__value">
+          5671
+        </dd>
+                        </div>
+
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+          Group UID
+        </dt>
+                            <dd class="govuk-summary-list__value">
+          TR00078
+        </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+          Your roles
+        </dt>
+                            <dd class="govuk-summary-list__value">
+                                <ul class="govuk-list">
+                                    <li>Finance</li>
+                                    <li>Resource Managament</li>
+                                    <li>Compliance</li>
+                                </ul>
+                            </dd>
+                        </div>
+
+                    </dl>
+
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <div class="govuk-form-group govuk-!-margin-bottom-0">
+                        <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation1" name="organisation1" type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation1">Make this my default for next time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <h2 class="govuk-heading-l govuk-!-margin-bottom-5">Manage an individual school</h2>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Schools</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">School</th>
+                                <th scope="col" class="govuk-table__header ">URN</th>
+                                <th scope="col" class="govuk-table__header ">Address</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="/overview">Coppice School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1001673</td>
+                                <td class="govuk-table__cell ">Wood Lane, London, WC1A 1JH</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Beechnut School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1024213</td>
+                                <td class="govuk-table__cell ">Forest Road, London, WC1A 4NA</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Oakwood School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1023531</td>
+                                <td class="govuk-table__cell ">Riverbank Street, London, E16 1DA</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Tudor Science Academy</a>
+                                </th>
+                                <td class="govuk-table__cell ">1243347</td>
+                                <td class="govuk-table__cell ">Silvertown Way, London, E16 2YY</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Meadowbank High School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1202523</td>
+                                <td class="govuk-table__cell ">Albert Dock, London, E17 1UP</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">King George V High School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1000012</td>
+                                <td class="govuk-table__cell ">Levy Street, London, EC1A 2GF</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Arrowbank Prepatory</a>
+                                </th>
+                                <td class="govuk-table__cell ">1028311</td>
+                                <td class="govuk-table__cell ">Smithson Grange, London, SW1A 3AW</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

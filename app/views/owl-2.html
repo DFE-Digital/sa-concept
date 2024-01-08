@@ -1,0 +1,190 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Ask Owl" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set owl = true %}
+{% set view = "overview" %}
+
+{% block hero %}
+    {% include './_owl_header.html'%}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row owl">
+
+        <div class="govuk-grid-column-one-quarter">
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Question</h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="/owl-2">New</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+
+                    <form class="earch" id="chat-form">
+                        <div class="govuk-form-group govuk-!-margin-bottom-2">
+                            <label class="govuk-label" for="event-name">How can I help you today?</label>
+
+                            <input class="govuk-input" id="event-name" name="eventName" type="text">
+                        </div>
+
+                        <button type="button" class="govuk-button owl-button  govuk-!-margin-bottom-2"  data-module="govuk-button" id="ask-button">
+        Ask owl
+    </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">History</h2>
+
+                </div>
+                <div class="govuk-summary-card__content">
+
+                    <div id="default">
+
+                        <p class="owl-when">Asked {{ x | date('subtract', '4', 'minute') | fromNow }}</p>
+
+                        <ul class="owl-chats">
+                            <li>
+                                <a href="/owl-a">How do I apply for funding to improve some school buildings?</a>
+                            </li>
+                        </ul>
+
+                        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        <p class="owl-when">No more question history</p>
+                    </div>
+                    <div id="history" style="display: none;">
+                        <p class="owl-when">Asked {{ x | date('subtract', '0', 'minute') | fromNow }}</p>
+
+                        <ul class="owl-chats">
+                            <li>
+                                <a href="/owl-2a">How do I deal with complaints from parents?</a>
+                            </li>
+                            <li>
+                                <a href="/owl-a">How do I apply for funding to improve some school buildings?</a>
+                            </li>
+                        </ul>
+
+                        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        <p class="owl-when">No more question history</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+
+            <div class="response-panel" id="response-panel">
+              <p>You can ask Owl all sorts of things, such as:</p> 
+              
+              <ul>
+                <li>How do I apply for funding to improve some school buildings?</li>
+                <li>How do I deal with complaints from parents?</li>
+                <li>How many pupils were absent yesterday?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter" id="response-panel-options" style="display: none;">
+            <aside class="dfe-aside govuk-!-padding-top-5">
+                <p>We've saved this into your question history so you can come back to it if you need it.</p>
+
+                <ul class="govuk-list">
+                    <li>
+                        <a class="govuk-link" href="">Email this to me</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Share with someone else</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Print it off</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Remove from history</a>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+
+       <script>
+    const askButton = document.getElementById("ask-button");
+    const responsePanel = document.getElementById("response-panel");
+    const responsePanelOptions = document.getElementById("response-panel-options");
+    const defaultHistory = document.getElementById("default");
+    const historyList = document.getElementById("history");
+
+    askButton.addEventListener("click", () => {
+        const inputText = document.getElementById("event-name").value;
+
+        // Fetch the content from the HTML file
+        fetch('./owl-2-content.html')
+            .then(response => response.text())
+            .then(responseText => {
+                // Clear the response panel and show it
+                responsePanel.innerHTML = "";
+                responsePanel.style.display = "block";
+
+                // Display the initial message
+                const initialMessage = document.createElement("p");
+                initialMessage.style.fontWeight = "700";
+                initialMessage.style.marginTop = "10px";
+                initialMessage.textContent = "Asking Owl";
+                responsePanel.appendChild(initialMessage);
+
+                // Function to simulate the thinking animation
+                function simulateThinking() {
+                    const ellipsis = document.createTextNode(".");
+                    initialMessage.appendChild(ellipsis);
+
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        count++;
+                        if (count === 10) {
+                            initialMessage.textContent = "Asking Owl"; // Reset the text
+                            clearInterval(interval); // Stop the animation after 3 cycles
+                        } else {
+                            initialMessage.textContent += ".";
+                        }
+                    }, 500); // Adjust the interval (milliseconds) as needed
+                }
+
+                // Start the thinking animation
+                simulateThinking();
+
+                // Append responseText after a delay
+                setTimeout(() => {
+                    responsePanel.removeChild(initialMessage); // Remove the initial message
+                    const preformattedText = document.createElement("div");
+                    preformattedText.innerHTML = responseText;
+                    responsePanel.appendChild(preformattedText);
+
+                    responsePanelOptions.style.display = "block";
+                    defaultHistory.style.display = "none";
+                    historyList.style.display = "block";
+                }, 5000); // Delay for 5 seconds
+            })
+            .catch(error => {
+                console.error("Error fetching content:", error);
+            });
+    });
+</script>
+
+
+
+        </div>
+
+    </div>
+
+{% endblock %}

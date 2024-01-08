@@ -1,0 +1,88 @@
+{% extends "layouts/public-signin.html" %}
+
+{% set selectedNav = "Features" %}
+{% set pageName = "Features" %}
+{% set pageDescription = "" %}
+
+{% block content %}
+
+    <section class="sign-in-page">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <div class="middle-panel">
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
+
+                            <img src="/assets/images/dfe-logo-alt.png" style="height: 90px; margin-bottom: 40px;">
+
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+
+                            <h1 class="govuk-heading-l">DfE One Account</h1>
+
+                         
+                          
+                          <p class="govuk-body-l">You're signing into the One School Account service.</p>
+                          <p>You can find out more about this service on the <br/><a href="/">One School Account</a> website.</p>
+                          
+                            
+
+                        </div>
+                        <div class="govuk-grid-column-one-half">
+
+                            <form class="sign-in-form">
+
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="event-name">
+    Email address
+  </label>
+                                    <input class="govuk-input" id="event-name" name="eventName" type="text">
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label" for="event-name2">
+    Password
+  </label>
+                                    <input class="govuk-input" id="event-name2" name="eventName2" type="text">
+                                    <p  class="govuk-!-margin-top-2">
+                                        <a class="govuk-link" href="#">Forgot your password?</a>
+                                    </p>
+                                </div>
+                                <div class="govuk-form-group">
+                                    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                                        <div class="govuk-checkboxes__item">
+                                            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+                                            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Remember me on this device
+        </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="govuk-button-group">
+                                    <a href="/trust" class="govuk-button" data-module="govuk-button" style="width: 100%;">
+    Sign in
+  </a>
+
+                                </div>
+
+                                <p class="govuk-!-margin-top-4">Don't have an account? <a href="">register for DfE Sign In</a>.</p>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

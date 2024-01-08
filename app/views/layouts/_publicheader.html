@@ -1,0 +1,496 @@
+{% set primaryLinks = [
+  { "url": "/features", "label": "Features" },
+  { "url": "/services", "label": "Services" }
+] %}
+
+{% if style === "mixed" %}
+  <style>
+
+    .dfe-new-header {
+      background-color: #2B303B;
+      border-bottom: 10px solid #347ca9;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dfe-new-header--logo-strip {
+      background-color: #003A69;
+      padding: 8px 0;
+    }
+    .dfe-new-header--logo-strip__inner {
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      justify-content: space-between;
+      /* Aligns items to the start and end of the container */
+    }
+
+    .default-logo {
+      height: 35px;
+    }
+
+    /* Hide the alternate logo by default */
+    .dfe-new-header--logo-strip__inner__logo .alt-logo {
+      display: none;
+    }
+
+    /* Hide the default logo and show the alternate logo when the link is focused */
+    .dfe-new-header--logo-strip__inner__logo a:focus .default-logo {
+      display: none;
+    }
+
+    .dfe-new-header--logo-strip__inner__logo a:focus .alt-logo {
+      outline: 3px solid transparent;
+      color: #0b0c0c;
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #347ca9;
+      text-decoration: none;
+      -webkit-box-decoration-break: clone;
+      /* This property is typically used for multi-line inline elements */
+      display: inline;
+    }
+
+    .dfe-new-header--logo-strip__user-actions {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      /* Use flexbox for alignment */
+      justify-content: flex-end;
+      /* Align items to the end (right side) */
+    }
+
+    .dfe-new-header--logo-strip__user-actions ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      /* Enable flexbox for the list */
+      gap: 0;
+      /* Add space between list items */
+    }
+
+    .dfe-new-header--logo-strip__user-actions ul li {
+      margin: 0;
+      /* Remove margin if not needed */
+      padding: 0;
+      /* Remove padding if not needed */
+    }
+
+    .dfe-new-header--logo-strip__user-actions ul li a {
+      color: #fff;
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      text-decoration: none;
+      padding: 10px 15px;
+      /* Add padding for a larger clickable area */
+    }
+
+    .dfe-new-header--logo-strip__user-actions ul li a:focus {
+      outline: 3px solid transparent;
+      color: #0b0c0c;
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #347ca9;
+      text-decoration: none;
+      -webkit-box-decoration-break: clone;
+      /* This property is typically used for multi-line inline elements */
+    }
+
+    .dfe-new-header--logo-strip__user-actions ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .dfe-new-header--service-strip__inner {
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 25px 0;
+      display: flex;
+      justify-content: space-between;
+      /* Aligns items to the start and end of the container */
+    }
+
+    .dfe-new-header--service-strip__inner__service-name a {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .dfe-new-header--service-strip__inner__service-name a:hover {
+      text-decoration: underline;
+    }
+
+    .dfe-new-header--service-strip__inner__service-name a:focus {
+      outline: 3px solid transparent;
+      color: #0b0c0c;
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #347ca9;
+      text-decoration: none;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .dfe-new-header--nav-strip {
+      background-color: #2B303B;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dfe-new-header--nav-strip__inner {
+      border-top: 1px solid #6E6E6e;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 0;
+    }
+
+    .dfe-new-header--nav-strip ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dfe-new-header--nav-strip ul li {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dfe-new-header--nav-strip ul li a {
+      color: #fff;
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      margin: 0;
+      padding: 15px;
+      text-decoration: none;
+    }
+
+    .dfe-new-header--nav-strip ul li a:focus {
+      outline: 0 solid transparent;
+      color: #0b0c0c;
+      background-color: #fd0;
+      box-shadow: 0 0 #fd0, 0 4px #347ca9;
+      text-decoration: none;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .dfe-new-header--nav-strip__inner--active {
+      background-color: #347ca9;
+      font-weight: 600 !important;
+    }
+
+    .dfe-new-header--nav-strip ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .dfe-header__search-form {
+      height: 100%;
+      overflow: visible;
+    }
+
+    @media (max-width: 40.0525em) {
+      .dfe-header__search-form {
+        background-color: #fff;
+        display: flex;
+        padding: 16px;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 40.0525em) {
+      .dfe-header__search-wrap {
+        display: none;
+      }
+
+      .dfe-header__search-wrap.js-show {
+        clear: both;
+        display: flex;
+        margin-bottom: -20px;
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-top: 16px;
+        text-align: left;
+      }
+    }
+
+    @media (min-width: 40.0625em) {
+      .dfe-header__search-wrap {
+        display: block;
+        line-height: 0;
+      }
+    }
+
+    .dfe-search__input {
+      -webkit-appearance: listbox;
+
+      padding: 0 16px;
+    }
+
+    .dfe-search__input:focus {
+      border: 4px solid #0b0c0c;
+      box-shadow: 0 0 0 4px #fd0;
+      outline: 4px solid transparent;
+      outline-offset: 4px;
+      padding: 0 9px;
+    }
+
+    .dfe-search__input::placeholder {
+      color: #505a5f;
+      font-size: 16px;
+    }
+
+    .dfe-search__input:-ms-input-placeholder {
+      color: #505a5f;
+      font-size: 16px;
+    }
+
+    .dfe-search__input::-webkit-input-placeholder {
+      color: #505a5f;
+      font-size: 16px;
+    }
+
+    @media (max-width: 40.0525em) {
+      .dfe-search__input {
+        border-bottom: 1px solid #aeb7bd;
+        border-left: 1px solid #aeb7bd;
+        border-right: 0;
+        border-top: 1px solid #aeb7bd;
+        flex-grow: 2;
+        -ms-flex-positive: 2;
+        font-size: inherit;
+        height: 52px;
+        margin: 0;
+        outline: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+
+    @media (min-width: 40.0625em) {
+      .dfe-search__input {
+        border: 1px solid #fff;
+        font-size: 16px;
+        height: 40px;
+        width: 200px;
+      }
+    }
+
+    @media (min-width: 48.0625em) {
+      .dfe-search__input {
+        width: 235px;
+      }
+    }
+
+    .dfe-search__submit {
+      border: 0;
+      border-radius: 0;
+      float: right;
+      font-size: inherit;
+      line-height: inherit;
+      outline: 0;
+      padding: 0;
+    }
+
+    .dfe-search__submit::-moz-focus-inner {
+      border: 0;
+    }
+
+    .dfe-search__submit:hover {
+      cursor: pointer;
+    }
+
+    @media (max-width: 40.0525em) {
+      .dfe-search__submit {
+        background-color: #003a69;
+        height: 52px;
+        margin: 0;
+        padding: 8px 8px 0;
+      }
+
+      .dfe-search__submit .dfe-icon__search {
+        fill: #fff;
+        height: 38px;
+        width: 38px;
+      }
+
+      .dfe-search__submit:hover {
+        background-color: #002644;
+      }
+
+      .dfe-search__submit:focus {
+        background-color: #fd0;
+        box-shadow: 0 -4px #fd0,0 4px #0b0c0c;
+        outline: 4px solid transparent;
+        outline-offset: 4px;
+      }
+
+      .dfe-search__submit:focus:hover {
+        background-color: #fd0;
+      }
+
+      .dfe-search__submit:focus:hover .dfe-icon {
+        fill: #0b0c0c;
+      }
+
+      .dfe-search__submit:focus .dfe-icon {
+        fill: #0b0c0c;
+      }
+    }
+
+    @media (min-width: 40.0625em) {
+      .dfe-search__submit {
+        background-color: #f0f4f5;
+        display: block;
+        height: 40px;
+        width: 44px;
+      }
+
+      .dfe-search__submit .dfe-icon__search {
+        height: 27px;
+        width: 27px;
+      }
+
+      .dfe-search__submit:hover {
+        background-color: #002644;
+        border: 1px solid #fff;
+      }
+
+      .dfe-search__submit:hover .dfe-icon__search {
+        fill: #fff;
+      }
+
+      .dfe-search__submit:focus {
+        background-color: #fd0;
+        border: 0;
+        box-shadow: 0 4px 0 0 #0b0c0c;
+        color: #0b0c0c;
+        outline: 4px solid transparent;
+        outline-offset: 4px;
+        box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+      }
+
+      .dfe-search__submit:focus .dfe-icon {
+        fill: #0b0c0c;
+      }
+
+      .dfe-search__submit:active {
+        background-color: #001d35;
+        border: 0;
+      }
+
+      .dfe-search__submit:active .dfe-icon__search {
+        fill: #fff;
+      }
+    }
+
+    #dfe-new-header--services {
+      display: none;
+    }
+
+    .toggle-services {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      /* Add other styles as needed to match the design */
+    }
+
+    .toggle-services:focus,
+    .toggle-services:hover {
+      text-decoration: underline;
+    }
+
+    /* Update the .dfe-new-header--services-panel selector if necessary to ensure it's hidden by default */
+    #dfe-new-header--services {
+      display: none;
+    }
+
+    #dfe-new-header--services--toggle {
+      background-color: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+    .toggle-chevron {
+      width: 20px;
+      margin-left: 5px;
+    }
+    .dfe-new-header--services-panel {
+      padding: 20px 0;
+    }
+    .dfe-new-header--services-panel h2 {
+      margin-top: 0;
+      color: #fff;
+    }
+    .dfe-new-header--services-panel ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .dfe-new-header--services-panel ul li a:hover {
+      text-decoration: underline;
+    }
+    .dfe-new-header--services-panel ul li a:focus {
+      outline: 3px solid transparent;
+      color: #0b0c0c;
+      background-color: #fd0;
+      box-shadow: 0 -2px #fd0, 0 4px #347ca9;
+      text-decoration: none;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .dfe-new-header--logo-strip__inner__logo {
+      display: flex;
+      align-items: center;
+      /* This centers the children vertically */
+    }
+
+    .services-toggle-link {
+      text-decoration: none;
+      margin-left: 0;
+      /* Adjust as needed for spacing */
+      /* Add additional styles here */
+    }
+  </style>
+{% endif %}
+
+
+<div class="dfe-new-header">
+  <div class="dfe-new-header--logo-strip">
+    <div class="dfe-new-header--logo-strip__inner">
+      <div class="dfe-new-header--logo-strip__inner__logo">
+        <img src="/assets/images/inline-logo-white.png" alt="Department for Education" class="default-logo">
+      
+      </div>
+      <div class="dfe-new-header--logo-strip__user-actions">
+        <ul>
+          <li>
+            <a href="./auth/sign-out" title="Go to the Department for Education website">Register</a>
+          </li>
+          <li>
+            <a href="./auth/sign-out" title="Go to the Department for Education website">Sign in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="dfe=new-header--service-strip">
+    <div class="dfe-new-header--service-strip__inner">
+      <div class="dfe-new-header--service-strip__inner__service-name">
+        <a href="/" title="Go to the service homepage">One School Account</a>
+      </div>
+  
+    </div>
+  </div>
+  <nav class="dfe-new-header--nav-strip">
+    <div class="dfe-new-header--nav-strip__inner">
+      <ul>
+        {% for link in primaryLinks %}
+          <li>
+            <a href="{{ link.url }}" class=" {% if selectedNav === link.label %}dfe-new-header--nav-strip__inner--active{% endif %}">{{ link.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>

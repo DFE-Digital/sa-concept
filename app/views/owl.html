@@ -1,0 +1,246 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Ask Owl" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set owl = true %}
+{% set view = "overview" %}
+
+{% block hero %}
+    {% include './_owl_header.html'%}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row owl">
+
+        <div class="govuk-grid-column-one-quarter">
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Question</h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="/owl-2">New</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+
+                    <form class="earch" id="chat-form">
+                        <div class="govuk-form-group govuk-!-margin-bottom-2">
+                            <label class="govuk-label" for="event-name">How can I help you today?</label>
+
+                            <input class="govuk-input" id="event-name" name="eventName" type="text">
+                        </div>
+
+                        <button type="button" class="govuk-button owl-button  govuk-!-margin-bottom-2"  data-module="govuk-button" id="ask-button">
+        Ask owl
+    </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">History</h2>
+
+                </div>
+                <div class="govuk-summary-card__content">
+
+                    <div id="default">
+
+                        <p class="govuk-body govuk-body-s">You've not got any question history.</p>
+
+                        <p class="govuk-body govuk-body-s">When you ask questions they'll stay here, until you delete them.</p>
+                    </div>
+                    <div id="history" style="display: none;">
+                        <p class="owl-when">Asked {{ x | date('subtract', '1', 'minute') | fromNow }}</p>
+
+                        <ul class="owl-chats">
+                            <li>
+                                <a href="/owl-a">How do I apply for funding to improve some school buildings?</a>
+                            </li>
+                        </ul>
+
+                        <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        <p class="owl-when">No more question history</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-half">
+
+            <div class="response-panel" id="response-panel">
+              <p>You can ask Owl all sorts of things, such as:</p> 
+              
+              <ul>
+                <li>How do I apply for funding to improve some school buildings?</li>
+                <li>How do I deal with complaints from parents?</li>
+                <li>How many pupils were absent yesterday?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-one-quarter" id="response-panel-options" style="display: none;">
+            <aside class="dfe-aside govuk-!-padding-top-5">
+                <p>We've saved this into your question history so you can come back to it if you need it.</p>
+
+                <ul class="govuk-list">
+                    <li>
+                        <a class="govuk-link" href="">Email this to me</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Share with someone else</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Print it off</a>
+                    </li>
+                    <li>
+                        <a class="govuk-link" href="">Remove from history</a>
+                    </li>
+                </ul>
+            </aside>
+
+        </div>
+
+        <script>
+            const askButton = document.getElementById("ask-button");
+            const responsePanel = document.getElementById("response-panel");
+            const responsePanelOptions = document.getElementById("response-panel-options");
+
+            const defaultHistory = document.getElementById("default");
+            const historyList = document.getElementById("history");
+
+            askButton.addEventListener("click", () => {
+                const inputText = document
+                    .getElementById("event-name")
+                    .value;
+                // Simulate a response here (you can replace this with your actual response)
+                const responseText = '<p class="govuk-heading-m">You asked:</p><p>How do I apply for funding to improve some school buildings?</p><p class="govuk-heading-m">This is what I have found:</p><p>Improvements to buildings could be covered under the Condition Improvement Fund (CIF).</p><p>Here is some information:</p><ul class="govuk-list govuk-list--spaced">' + '        <li>' + '<strong>Check Eligibility:</strong> Ensure your institution (such as a stand-alone academy, small multi-academy trust, voluntary aided school, or sixth-form college) meets the eligibility criteria for CIF funding.' + '</li>' + '<li>' + '<strong>Register for an Account:</strong> If you’re a new applicant, register for an account on the CIF portal by the specified deadline. This is typically a few weeks before the final application deadline.' + '</li>' + '<li>' + '<strong>Gather Necessary Information and Documents:</strong> Prepare all required documents and information. This often includes condition surveys, evidence of need, project proposals, detailed costings, planning permissions (if applicable), and any other relevant supporting documents.' + '</li>' + '<li>' + '<strong>Prepare the Application:</strong> Fill out the application form on the CIF portal. This will include providing detailed information about your project, such as the scope of work, the urgency and necessity of the project, how it aligns with CIF priorities, and how you plan to manage and deliver the project.' + '</li>' + '<li>' + '<strong>Submit the Application:</strong> Complete your application and submit it through the portal before the closing date. Make sure to review all information for accuracy and completeness before submitting.' + '</li>' + '<li>' + '<strong>Wait for Notification:</strong> After submitting, you’ll have to wait for the outcome of your application. Notifications are usually sent out a few months after the application deadline.' + '</li>' + '<li>' + '<strong>Post-Approval Requirements:</strong> If successful, comply with any post-approval requirements, including project management, reporting, and adherence to CIF terms and conditions.' + '        </li>' + '    </ul> <p class="govuk-heading-m">Guidance on GOV.UK</p><p>You can find more information on our guidance page:</p><p><a href="https://www.gov.uk/guidance/condition-improvement-fund" target="_blank">Condition Improvement Fund guidance on GOV.UK</a></p><p id="update" class="govuk-heading-m">Account specific information</p><p>I have checked your eligibility based on the criteria and have found you may be eligible to apply for CIF as your trust has less than 3,000 pupils.</p><p>You can check the <a href="/finance-eligibility">Finance eligibility </a>section to see your eligibility.</p>'
+
+                // Clear the response panel and show it
+                responsePanel.innerHTML = "";
+                responsePanel.style.display = "block";
+
+                // Display the initial message
+                const initialMessage = document.createElement("p");
+                initialMessage.style.fontWeight = "700";
+                initialMessage.style.marginTop = "10px";
+                initialMessage.textContent = "Asking Owl";
+                responsePanel.appendChild(initialMessage);
+
+                // Function to simulate the thinking animation
+                function simulateThinking() {
+                    const ellipsis = document.createTextNode(".");
+                    initialMessage.appendChild(ellipsis);
+
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        count++;
+                        if (count === 10) {
+                            initialMessage.textContent = "Asking Owl"; // Reset the text
+                            clearInterval(interval); // Stop the animation after 3 cycles
+                        } else {
+                            initialMessage.textContent += ".";
+                        }
+                    }, 500); // Adjust the interval (milliseconds) as needed
+                }
+
+                // Start the thinking animation
+                simulateThinking();
+
+                // Append responseText after a delay
+                setTimeout(() => {
+                    responsePanel.removeChild(initialMessage); // Remove the initial message
+                    const preformattedText = document.createElement("div");
+                    preformattedText.innerHTML = responseText;
+                    responsePanel.appendChild(preformattedText);
+
+                    responsePanelOptions.style.display = "block";
+                    defaultHistory.style.display = "none";
+                    historyList.style.display = "block";
+
+                    // Delay for 5 seconds
+                }, 5000); // Delay for 5 seconds
+
+            });
+        </script>
+
+        <script>
+
+            <style>
+                @keyframes thinkingAnimation {
+                    0% {
+                        content: "Asking Owl.";
+                    }
+                    33% {
+                        content: "Asking Owl..";
+                    }
+                    66% {
+                        content: "Asking Owl...";
+                    }
+                    100% {
+                        content: "Asking Owl.";
+                    }
+                }
+                .question-ideas {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    /* Create 4 columns with equal width */
+                    grid-gap: 20px;
+                    /* Add some spacing between the cards */
+                }
+
+                .question-idea {
+                    background-color: #f3f2f1;
+                    padding: 20px;
+                    border: 1px solid #ccc;
+                }
+                .search {
+                    background: #f3f2f1;
+                    padding: 15px 20px 5px 30px;
+                    border-radius: 2px;
+                    border: 1px solid #b1b4b6;
+                }
+                .inline-wrapper {
+                    align-items: normal;
+                }
+
+                .search .govuk-label {
+                    margin-right: 10px;
+                    font-size: 1.1875rem;
+                    font-weight: 700;
+                    margin-bottom: 10px;
+                }
+
+                .search .govuk-input {
+                    padding: 12px 5px;
+                    width: 90%;
+                }
+
+                .search .govuk-button {
+                    margin-bottom: 0 !important;
+                }
+
+                .search p {
+                    margin: 10px 0;
+                }
+
+                .response-panel {
+                    background: #f3f2f1;
+                    padding: 15px 20px 5px 30px;
+                    border-radius: 2px;
+                    border: 1px solid #b1b4b6;
+                    margin-top: 20px;
+                }
+            </style>
+        </div>
+
+    </div>
+
+{% endblock %}

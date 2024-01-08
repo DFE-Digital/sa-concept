@@ -1,0 +1,87 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "applications" %}
+
+{% block hero %}
+  {% include './_finance_header.html'%}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Categories</h2>
+
+        </div>
+        <div class="govuk-summary-card__content">
+          <nav class="dfe-vertical-nav">
+            <ul class="dfe-vertical-nav__section">
+              <li class="dfe-vertical-nav__section-item dfe-vertical-nav__section-item--current">
+                <a class="dfe-vertical-nav__link" href="/finance-applications">In progress</a>
+              </li>
+              <li class="dfe-vertical-nav__section-item">
+                <a class="dfe-vertical-nav__link" href="/finance-applications-completed">Completed</a>
+              </li>
+              <li class="dfe-vertical-nav__section-item">
+                <a class="dfe-vertical-nav__link" href="/finance-applications-rejected">Rejected or declined</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-three-quarters">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-0">In progress</h2>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Purpose</th>
+            <th scope="col" class="govuk-table__header">Reference</th>
+            <th scope="col" class="govuk-table__header">Amount</th>
+            <th scope="col" class="govuk-table__header">Submitted</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+           <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <a href="/finance-application-fdl" class="govuk-link">Future Digital Leaders Fund</a>
+            </th>
+            <td class="govuk-table__cell">FDL-2024-0018</td>
+            <td class="govuk-table__cell">£25,000</td>
+            <td class="govuk-table__cell">{{x | date('D MMM YYYY')}}</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">Processing</strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">
+              <a href="/finance-application" class="govuk-link">School Beehives Grant</a>
+            </th>
+            <td class="govuk-table__cell">BEE-2023-5824</td>
+            <td class="govuk-table__cell">£4,200</td>
+            <td class="govuk-table__cell">17 Sep 2023</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">Processing</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

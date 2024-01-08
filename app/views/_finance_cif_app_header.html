@@ -1,0 +1,93 @@
+{% if cif === "info" %}
+
+    <div class="dfe-page-header">
+        <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+            <a href="/finance-cif-apply" class="govuk-back-link">Back to fund guidance</a>
+
+            <div class="govuk-grid-row govuk-!-margin-top-4">
+
+                <div class="govuk-grid-column-full">
+                    <span class="govuk-caption-l">Application</span>
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">Future Digital Leaders Fund</h1>
+
+                    <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+                        <ul class="app-sub-navigation__list">
+
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link" {% if view === 'start' %} aria-current="page" {% endif %} href="/cif-1">Application start</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endif %}
+
+{% if cif === "app" %}
+
+    <div class="dfe-page-header">
+        <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+            <div class="govuk-grid-row govuk-!-margin-top-4">
+
+                <div class="govuk-grid-column-full">
+                    <span class="govuk-caption-l">Future Digital Leaders Fund</span>
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">{{data['projname']}}</h1>
+
+                    <table class="govuk-table govuk-!-margin-bottom-5">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Status</th>
+                                <th scope="col" class="govuk-table__header">Amount</th>
+                                <th scope="col" class="govuk-table__header">Reference</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <strong class="govuk-tag govuk-tag--orange">Draft</strong>
+                                </th>
+                                <td class="govuk-table__cell">£{% if data['amount']%}{{data['amount']}}{% else%}0{% endif %}  </td>
+                                <td class="govuk-table__cell">FDL-2024-0018</th>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+                        <ul class="app-sub-navigation__list">
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link" {% if view === 'tasks' %} aria-current="page" {% endif %} href="/cif-2">Application tasks</a>
+                            </li>
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link" {% if view === 'amount' %} aria-current="page" {% endif %} href="/cif-3">Amount</a>
+                            </li>
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link"  {% if view === 'pupils' %} aria-current="page" {% endif %}href="/cif-4">Pupils</a>
+                            </li>
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link"  {% if view === 'breakdown' %} aria-current="page" {% endif %}href="/cif-5">Breakdown of amount</a>
+                            </li>
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link"  {% if view === 'docs' %} aria-current="page" {% endif %}href="/cif-6">Supporting documents</a>
+                            </li>
+                            <li class="app-sub-navigation__item">
+                                <a class="app-sub-navigation__link" {% if view === 'declarations' %} aria-current="page" {% endif %} href="/cif-7">Declarations</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endif %}

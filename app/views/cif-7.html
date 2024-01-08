@@ -1,0 +1,83 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "declarations" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Notification and declarations</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <p>Before we send emails to the following business managers that pupils from their schools have been added to this application, check the details are correct.</p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Pupil name</th>
+            <th scope="col" class="govuk-table__header">Date of birth</th>
+            <th scope="col" class="govuk-table__header">School name</th>
+            <th scope="col" class="govuk-table__header">Business manager</th>
+          </tr> 
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Edward Smith</a></td>
+            <td class="govuk-table__cell">18/06/2008</td>
+            <td class="govuk-table__cell">Coppice School</td>
+            <td class="govuk-table__cell">Jane Dudley</td>
+            </tr>
+             <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Sanjeev Hussan</a></td>
+            <td class="govuk-table__cell">27/03/2008</td>
+            <td class="govuk-table__cell">Coppice School</td>
+            <td class="govuk-table__cell">Jane Dudley</td>
+            </tr>
+             <tr class="govuk-table__row">
+            <td class="govuk-table__cell"><a href="" class="govuk-link govuk-link--no-visited-state">Kelly Jones</a></td>
+            <td class="govuk-table__cell">22/04/2008</td>
+            <td class="govuk-table__cell">Tudor Science Academy</td>
+            <td class="govuk-table__cell">Gurpreet Bassi</td>
+            </tr>
+            </tbody>
+            </table>
+           
+      
+<p>I confirm that the 3 pupils, and schools listed, are correct.</p>
+
+<p>Clicking send notifications button will email Jane Dudley and Gurpreet Bassi to confirm the applications for pupils in their school.</p>
+
+        <a  class="govuk-button"  href="/cif-7-a">
+  Send notifications
+</a>
+    
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Guidance for how to calculate the funding.</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

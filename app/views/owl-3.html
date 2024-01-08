@@ -1,0 +1,204 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Ask Owl" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set owl = true %}
+{% set view = "overview" %}
+
+{% block hero %}
+    {% include './_owl_header.html'%}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row owl">
+
+        <div class="govuk-grid-column-one-quarter">
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">History</h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="/owl">New question</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <p class="owl-when">Asked {{ x | date('subtract', '1', 'minute') | fromNow }}</p>
+
+                    <ul class="owl-chats">
+                        <li>
+                            <a href="/owl-a">How do I apply for funding to improve some school buildings?</a>
+                        </li>
+                    </ul>
+
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <p class="owl-when">No more question history</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-three-quarters">
+            <form class="search" id="chat-form">
+                <label class="govuk-label" for="event-name">What do you want to ask?</label>
+                <div class="inline-wrapper">
+                    <input class="govuk-input" id="event-name" name="eventName" type="text">
+                    <button type="button" class="govuk-button" data-module="govuk-button" id="ask-button">
+                    Ask owl
+                </button>
+                </div>
+                <p class="govuk-body-s examples" id="exampleText"></p>
+            </form>
+
+           <div class="response-panel" id="response-panel">
+              <p>You can ask Owl all sorts of things, such as:</p> 
+              
+              <ul>
+                <li>How do I apply for funding to improve some school buildings?</li>
+                <li>How do I deal with complaints from parents?</li>
+                <li>How many pupils were absent yesterday?</li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            const askButton = document.getElementById("ask-button");
+            const responsePanel = document.getElementById("response-panel");
+
+            askButton.addEventListener("click", () => {
+                const inputText = document
+                    .getElementById("event-name")
+                    .value;
+                // Simulate a response here (you can replace this with your actual response)
+                const responseText = '<p class="govuk-heading-s">You asked:</p><p>How many pupils are there in total? - <a href="/owl-2">Ask again to get updated answer</a></p><p class="govuk-heading-s">This is what I have found:</p><p>As of the last Census return in October 2023 the number of pupils was 2,834.</p><p>However, based on information from the live school attendance data, as of 8 January 2024, there were 2,726 pupils.</p><p class="govuk-heading-s">Census data</p><p>The split of pupils from the 2023 March Census is 1,347 girls and 1,487 boys.</p><p class="govuk-heading-s">Live attendance data</p><p>The split of pupils from the attendance data is 1,349 girls and 1,377 boys.</p><p>You can <a href="" class="govuk-link" target="_blank">view census data</a> or <a href="/attendance-data" class="govuk-link">view live attendance data</a></p><hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible"><p><a href="">Delete this question and response</a>.</p>'
+                 // Clear the response panel and show it
+                responsePanel.innerHTML = "";
+                responsePanel.style.display = "block";
+
+                // Display the initial message
+                const initialMessage = document.createElement("p");
+                initialMessage.style.fontWeight = "700";
+                initialMessage.style.marginTop = "10px";
+                initialMessage.textContent = "Asking Owl";
+                responsePanel.appendChild(initialMessage);
+
+                // Function to simulate the thinking animation
+                function simulateThinking() {
+                    const ellipsis = document.createTextNode(".");
+                    initialMessage.appendChild(ellipsis);
+
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        count++;
+                        if (count === 20) {
+                            initialMessage.textContent = "Asking Owl"; // Reset the text
+                            clearInterval(interval); // Stop the animation after 3 cycles
+                        } else {
+                            initialMessage.textContent += ".";
+                        }
+                    }, 400); // Adjust the interval (milliseconds) as needed
+                }
+
+                // Start the thinking animation
+                simulateThinking();
+
+                // Append responseText after a delay
+                setTimeout(() => {
+                    responsePanel.removeChild(initialMessage); // Remove the initial message
+                    const preformattedText = document.createElement("div");
+                    preformattedText.innerHTML = responseText;
+                    responsePanel.appendChild(preformattedText);
+
+            
+                }, 2800); // Delay for 3 seconds
+
+            });
+        </script>
+
+        <script>
+            const questionIdeas = ["Who is the finance director in Tudor Science Academy?", "When do we have to submit the census by?", "Can I get support for buying some laptops?", "What's happening with our funding application?", "How many pupils are there in the trust?"];
+
+            const exampleText = document.getElementById("exampleText");
+
+            // Function to randomly change the example text
+            function changeExampleText() {
+                const randomIndex = Math.floor(Math.random() * questionIdeas.length);
+                exampleText.textContent = `For example, "${questionIdeas[randomIndex]}"`;
+            }
+
+            window.addEventListener("load", changeExampleText);
+        </script>
+        <style>
+            @keyframes thinkingAnimation {
+                0% {
+                    content: "Asking Owl.";
+                }
+                33% {
+                    content: "Asking Owl..";
+                }
+                66% {
+                    content: "Asking Owl...";
+                }
+                100% {
+                    content: "Asking Owl.";
+                }
+            }
+            .question-ideas {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                /* Create 4 columns with equal width */
+                grid-gap: 20px;
+                /* Add some spacing between the cards */
+            }
+
+            .question-idea {
+                background-color: #f3f2f1;
+                padding: 20px;
+                border: 1px solid #ccc;
+            }
+            .search {
+                background: #f3f2f1;
+                padding: 15px 20px 5px 30px;
+                border-radius: 2px;
+                border: 1px solid #b1b4b6;
+            }
+            .inline-wrapper {
+                align-items: normal;
+            }
+
+            .search .govuk-label {
+                margin-right: 10px;
+                font-size: 1.1875rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+
+            .search .govuk-input {
+                padding: 12px 5px;
+                width: 90%;
+            }
+
+            .search .govuk-button {
+                margin-bottom: 0 !important;
+            }
+
+            .search p {
+                margin: 10px 0;
+            }
+
+            .response-panel {
+                background: #f3f2f1;
+                padding: 15px 20px 5px 30px;
+                border-radius: 2px;
+                border: 1px solid #b1b4b6;
+                margin-top: 20px;
+            }
+        </style>
+    </div>
+
+</div>
+
+{% endblock %}

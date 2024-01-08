@@ -1,0 +1,155 @@
+{% set primaryLinks = [
+  { "url": "/manage", "label": "Manage" },
+  { "url": "/assess", "label": "Assess" },
+  { "url": "/book", "label": "Book" },
+  { "url": "/reports", "label": "Reports" },
+  { "url": "/assessments", "label": "Assessments" },
+  { "url": "/action-plans", "label": "Action plans" }
+] %}
+
+{% if data['userRole'].UserRole === 'Service Administrator'  or data['userRole'].UserRole === 'Administrator' or data['userRole'].UserRole === 'Department Lead' %}
+
+{% set primaryLinks = [
+  { "url": "/manage", "label": "Manage" },
+  { "url": "/assess", "label": "Assess" },
+  { "url": "/book", "label": "Book" },
+  { "url": "/reports", "label": "Reports" },
+  { "url": "/assessments", "label": "Assessments" },
+  { "url": "/action-plans", "label": "Action plans" },
+  { "url": "/admin", "label": "Admin" }
+] %}
+
+{% endif %}
+
+
+
+{% if style === "mixed" %}
+  <style>
+
+   
+  </style>
+{% endif %}
+
+
+
+<div class="dfe-new-header">
+  <div class="dfe-new-header--logo-strip">
+    <div class="dfe-new-header--logo-strip__inner">
+      <div class="dfe-new-header--logo-strip__inner__logo">
+        <img src="/assets/images/inline-logo-white.png" alt="Department for Education" class="default-logo">
+        {# <a href="javascript:void(0);" id="dfe-new-header--services--toggle" aria-expanded="false" aria-controls="dfe-new-header--services" class="toggle-services">
+    Services <img src="/assets/images/chevron-down.png" alt="" class="toggle-chevron" aria-hidden="true">
+        </a> #}
+      </div>
+      <div class="dfe-new-header--logo-strip__user-actions">
+        <ul>
+         <li>
+            <a href="./auth/sign-out" title="Go to the Department for Education website">Jill Smith</a>
+          </li>
+          <li>
+            <a href="./auth/sign-out" title="Go to the Department for Education website">Sign out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {# <div class="dfe-new-header--services-panel" id="dfe-new-header--services">
+      <div class="govuk-width-container dfe-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for schools</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for parents</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for learners</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+
+              <p class=""><a href="" class="govuk-link govuk-link--inverse">More DfE services</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div> #}
+  </div>
+  <div class="dfe=new-header--service-strip">
+    <div class="dfe-new-header--service-strip__inner">
+      <div class="dfe-new-header--service-strip__inner__service-name">
+        <a href="/" title="Go to the service homepage">One School Account</a>
+      </div>
+      {# <div class="dfe-new-header--service-strip__inner__search">
+        <div class="dfe-header__search">
+          <button class="dfe-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search">
+            <svg class="dfe-icon dfe-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+              <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+            </svg>
+            <span class="govuk-visually-hidden">Search</span>
+          </button>
+          <div class="dfe-header__search-wrap" id="wrap-search">
+            <form class="dfe-header__search-form" id="search" action="/search" method="get" role="search">
+              <label class="govuk-visually-hidden" for="search-field">Search this website</label>
+              <input class="dfe-search__input" id="search-field" name="searchterm" type="search" placeholder="Search" autocomplete="off" spellcheck="false" data-ms-editor="true">
+              <button class="dfe-search__submit" type="submit">
+                <svg class="dfe-icon dfe-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
+                </svg>
+                <span class="govuk-visually-hidden">Search</span>
+              </button>
+              <button class="dfe-search__close" id="close-search">
+                <svg class="dfe-icon dfe-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+                  <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+                </svg>
+                <span class="govuk-visually-hidden">Close search</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div> #}
+    </div>
+  </div>
+  <nav class="dfe-new-header--nav-strip">
+    <div class="dfe-new-header--nav-strip__inner">
+      <ul>
+        {% for link in primaryLinks %}
+          <li>
+            <a href="{{ link.url }}" class=" {% if selectedNav === link.label %}dfe-new-header--nav-strip__inner--active{% endif %}">{{ link.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>

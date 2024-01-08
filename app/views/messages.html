@@ -1,0 +1,239 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Messages" %}
+{% set pageName = "Messages" %}
+{% set pageDescription = "" %}
+{% set show_breadcrumbs = true %}
+{% set trust = true %}
+
+{% block hero %}
+    <div class="dfe-page-header">
+        <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+            <div class="govuk-grid-row">
+
+                <div class="govuk-grid-column-full">
+                    <span class="govuk-caption-l govuk-!-margin-top-5">Arden Multi Academy Trust</span>
+                    <h1 class="govuk-heading-xl">Messages</h1>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Categories</h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="#">Refresh</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <nav class="dfe-vertical-nav">
+                        <ul class="dfe-vertical-nav__section">
+                            <li class="dfe-vertical-nav__section-item dfe-vertical-nav__section-item--current">
+                                <span class="dfe-vertical-nav--count">3</span>
+                                <a class="dfe-vertical-nav__link" href="/messages">All messages </a>
+
+                            </li>
+                            <li class="dfe-vertical-nav__section-item">
+                                <a class="dfe-vertical-nav__link" href="/">Announcements</a>
+                            </li>
+                            <li class="dfe-vertical-nav__section-item ">
+                                <a class="dfe-vertical-nav__link" href="/">Important updates</a>
+                            </li>
+                            <li class="dfe-vertical-nav__section-item ">
+                                <a class="dfe-vertical-nav__link" href="/">Newsletters</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">Your folders</h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="#">New folder</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <nav class="dfe-vertical-nav">
+                        <ul class="dfe-vertical-nav__section">
+
+                            <li class="dfe-vertical-nav__section-item">
+                                <a class="dfe-vertical-nav__link" href="/">Finance stuff</a>
+                            </li>
+                            <li class="dfe-vertical-nav__section-item">
+                                <a class="dfe-vertical-nav__link" href="/">Compliance</a>
+                            </li>
+                            <li class="dfe-vertical-nav__section-item">
+                                <a class="dfe-vertical-nav__link" href="/">Property</a>
+                            </li>
+
+                            <li class="dfe-vertical-nav__section-item">
+                                <a class="dfe-vertical-nav__link" href="/">HR stuff</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="govuk-grid-column-three-quarters">
+            <div class="messages-filter-title-bar">
+                <h2 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-0">All messages</h2>
+                <div class="filters">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-visually-hidden" for="searchmessages">
+    Search messages
+  </label>
+                        <input class="govuk-input" id="searchmessages" name="searchmessages" type="text" placeholder="Search messages">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-visually-hidden" for="sort">
+    Sort by
+  </label>
+                        <select class="govuk-select" id="sort" name="sort">
+                            <option value="">Sort messages</option>
+                            <option value="new">New to old</option>
+                            <option value="old">Old to new</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+            <table class="govuk-table">
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">From</th>
+                        <th scope="col" class="govuk-table__header  govuk-!-width-one-half">Subject</th>
+                        <th scope="col" class="govuk-table__header govuk-!-width-one-half">Received</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row unread">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="" class="govuk-link govuk-link--no-visited-state" title="esfa.applications@education.gov.uk">ESFA Applications Team</a>
+                        </th>
+                        <td class="govuk-table__cell">Funding application outcome: SCF-2023-5824</td>
+                        <td class="govuk-table__cell" data-date="2024-01-04T11:32">Thur 4 Jan 2024 at 11:32</td>
+                    </tr>
+                    <tr class="govuk-table__row unread">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="" class="govuk-link govuk-link--no-visited-state" title="raac.awareness@education.gov.uk">RAAC Awareness</a>
+                        </th>
+                        <td class="govuk-table__cell">RAAC awareness submission confirmation</td>
+                        <td class="govuk-table__cell" data-date="2023-12-19T09:38">Tues 19 Dec 2023 at 09:38</td>
+                    </tr>
+
+                    <tr class="govuk-table__row unread">
+                        <th scope="row" class="govuk-table__header">
+                            <a href="" class="govuk-link govuk-link--no-visited-state"  title="newsletters@education.gov.uk">DfE Newsletters</a>
+                        </th>
+                        <td class="govuk-table__cell">DfE Capital Newsletter - December</td>
+                        <td class="govuk-table__cell" data-date="2023-12-04T10:01">Mon 4 Dec 2023 at 10:01</td>
+                    </tr>
+                     <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">
+                            <a href="" class="govuk-link govuk-link--no-visited-state" title="esfa.applications@education.gov.uk">ESFA Applications Team</a>
+                        </td>
+                        <td class="govuk-table__cell">Funding application received: SCF-2023-5824</td>
+                        <td class="govuk-table__cell" data-date="2023-12-17T09:32">Sun 17 Dec 2023 at 09:32</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="noItemsFound" style="display: none;"><p>No messages found.</p></div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const sortSelect = document.getElementById('sort');
+    const searchInput = document.getElementById('searchmessages');
+    
+    sortSelect.addEventListener('change', function() {
+        sortTable(this.value);
+    });
+
+    searchInput.addEventListener('input', function() {
+    
+        filterTable(this.value);
+    });
+});
+
+function sortTable(order) {
+    let table = document.querySelector(".govuk-table tbody");
+    let rows = Array.from(table.rows);
+
+    rows.sort(function(rowA, rowB) {
+        let dateA = rowA.cells[2].getAttribute('data-date');
+        let dateB = rowB.cells[2].getAttribute('data-date');
+
+        if (dateA && dateB) {
+            if (order === 'new') {
+                return new Date(dateB) - new Date(dateA);
+            } else if (order === 'old') {
+                return new Date(dateA) - new Date(dateB);
+            }
+        }
+        return 0;
+    });
+
+    // Reorder the rows in table
+    rows.forEach(row => table.appendChild(row));
+}
+
+function filterTable(searchText) {
+    let table = document.querySelector(".govuk-table tbody");
+    let noItemsFound = document.getElementById("noItemsFound");
+
+    if (!table) {
+        console.error("Table not found");
+        return;
+    }
+
+    searchText = searchText.toUpperCase();
+    let visibleRows = 0;
+
+    Array.from(table.rows).forEach(row => {
+        const rowText = Array.from(row.cells).map(cell => cell.textContent.toUpperCase()).join(" ");
+        if (rowText.includes(searchText)) {
+            row.style.display = "";
+            visibleRows++;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    // Display the 'no items found' message if no rows are visible
+    noItemsFound.style.display = (visibleRows === 0) ? "" : "none";
+    document.querySelector(".govuk-table").style.display = (visibleRows === 0) ? "none" : "";
+}
+
+
+
+</script>
+
+{% endblock %}

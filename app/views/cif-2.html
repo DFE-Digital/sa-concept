@@ -1,0 +1,117 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "tasks" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Application tasks</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <ul class="govuk-task-list">
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-1" aria-describedby="app-details-1-status">Application name</a>
+          </div>
+          <div class="govuk-task-list__status" id="app-details-1-status">
+      Completed
+    </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-3" aria-describedby="app-details-3-status">Amount</a>
+          </div>
+          <div class="govuk-task-list__status" id="app-details-3-status">
+          
+         {% if data['amount']%}
+             Completed
+            {% else%}
+            <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+        {% endif%}
+      </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-4" aria-describedby="app-details-4-hint app-details-4-status">Pupils</a>
+
+          </div>
+          <div class="govuk-task-list__status" id="app-details-4-status">
+            {% if pupilList | length > 0%}
+             Completed
+            {% else%}
+            <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+      </strong>
+      {% endif %}
+          </div>
+        </li>
+
+
+  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-5" aria-describedby="app-details-5-status">Breakdown of amount</a>
+          </div>
+          <div class="govuk-task-list__status" id="app-details-5-status">
+            <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+      </strong>
+          </div>
+        </li>
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-6" aria-describedby="app-details-6-status">Supporting documents</a>
+          </div>
+          <div class="govuk-task-list__status" id="app-details-6-status">
+            <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+      </strong>
+          </div>
+        </li>
+
+        <li class="govuk-task-list__item govuk-task-list__item--with-link">
+          <div class="govuk-task-list__name-and-hint">
+            <a class="govuk-link govuk-task-list__link" href="/cif-7" aria-describedby="app-details-7-status">Declarations</a>
+          </div>
+          <div class="govuk-task-list__status" id="app-details-7-status">
+            <strong class="govuk-tag govuk-tag--blue">
+        Incomplete
+      </strong>
+          </div>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Submit application</h2>
+
+      <p>You cannot submit this application until all sections are completed.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Future Digital Leaders Fund information</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

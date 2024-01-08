@@ -1,0 +1,46 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "info" %}
+{% set view = "start" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header_submitted.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+    Application complete
+  </h1>
+        <div class="govuk-panel__body govuk-!-margin-bottom-5">
+         
+    Your reference number<br>
+          <strong>FDL-2024-0018</strong>
+         
+         
+        </div> 
+        <p class="govuk-!-margin-bottom-0">
+          <a href="/finance-applications-2" class="govuk-button govuk-button--inverse govuk-!-margin-bottom-0">Track application</a></p>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>We've sent you, Jane Dudley and Gurpreet Bassi an email confirming the details of the application.</p>
+      <p>You can <a href="/finance-applications-2" class="govuk-link govuk-link--no-visited-state">track the progress of the application</a> in the Funding applications section.</p>
+
+      <p>ESFA will contact you if any additional information is required.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter"></div>
+
+  </div>
+{% endblock %}

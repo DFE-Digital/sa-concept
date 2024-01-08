@@ -1,0 +1,146 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "eligibility" %}
+
+{% block hero %}
+  <div class="dfe-page-header">
+    <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+      <a href="/finance" class="govuk-back-link">Back to your applications</a>
+
+      <div class="govuk-grid-row govuk-!-margin-top-4">
+
+        <div class="govuk-grid-column-full">
+
+          <span class="govuk-caption-l">Application</span>
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">School capital funding 2023 to 2024</h1>
+
+          <table class="govuk-table govuk-!-margin-bottom-5">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Amount</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <strong class="govuk-tag">Processing</strong>
+                </th>
+                <td class="govuk-table__cell">£67,597</td>
+                <td class="govuk-table__cell">SCF-2023-5824</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+            <ul class="app-sub-navigation__list">
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link" {% if view === 'overview' %} aria-current="page" {% endif %} href="/finance-application">Overview and actions</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'eligibility' %} aria-current="page" {% endif %}href="/finance-application-eligibility">Eligibility</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'application' %} aria-current="page" {% endif %}href="/finance-application-detail">Application</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'submission' %} aria-current="page" {% endif %}href="/finance-application-approval">Approvals and submission</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'outcome' %} aria-current="page" {% endif %}href="/finance-application-outcome">Outcome</a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter">
+
+      {% include './_app_timeline.html' %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Eligibility check</h2>
+
+      <div class="govuk-inset-text">
+        <p>Based on the information you have provided and that we already hold, your trust is eligible for the amount of:</p>
+        <p class="govuk-!-font-size-36 govuk-!-font-weight-bold">£67,597</p>
+      </div>
+
+      <h2 class="govuk-heading-l">Information used in this calculation</h2>
+
+      <p>I honestly cannot make head-nor-tail of the <a href="https://assets.publishing.service.gov.uk/media/641c634dba5ac9000cb1a754/2023_to_2024_Condition_funding_methodology.pdf" target="_blank" class="govuk-link">PDF</a> of the methodology for how this figure is calculated.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+      Schools in trust
+    </dt>
+          <dd class="govuk-summary-list__value">
+      7
+    </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Criteria</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+      Pupil weighting
+    </dt>
+          <dd class="govuk-summary-list__value">
+      4,653
+    </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Criteria</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+      Location factor
+    </dt>
+          <dd class="govuk-summary-list__value">
+      0.95
+    </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Criteria</a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+      Devolved Formula Capital (DFC)
+    </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">36,321</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Criteria</a>
+          </dd>
+        </div>
+      </dl>
+      <h2 class="govuk-heading-l">Confirmation of accuracy</h2>
+
+      <p>This was confirmed by Jill Smith on 12 September 2023 at 2:42pm</p>
+    </div>
+
+  </div>
+
+{% endblock %}

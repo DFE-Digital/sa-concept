@@ -1,0 +1,86 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Schools" %}
+{% set pageName = "Schools Overview" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set view = "overview" %}
+
+{% block hero %}
+  {% include './_schools_header.html'%}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-">
+    <div class="govuk-grid-column-three-quarters">
+
+<table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">School</th>
+                                <th scope="col" class="govuk-table__header ">URN</th>
+                                <th scope="col" class="govuk-table__header ">Address</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="/overview">Coppice School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1001673</td>
+                                <td class="govuk-table__cell ">Wood Lane, London, WC1A 1JH</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Beechnut School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1024213</td>
+                                <td class="govuk-table__cell ">Forest Road, London, WC1A 4NA</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Oakwood School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1023531</td>
+                                <td class="govuk-table__cell ">Riverbank Street, London, E16 1DA</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Tudor Science Academy</a>
+                                </th>
+                                <td class="govuk-table__cell ">1243347</td>
+                                <td class="govuk-table__cell ">Silvertown Way, London, E16 2YY</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Meadowbank High School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1202523</td>
+                                <td class="govuk-table__cell ">Albert Dock, London, E17 1UP</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">King George V High School</a>
+                                </th>
+                                <td class="govuk-table__cell ">1000012</td>
+                                <td class="govuk-table__cell ">Levy Street, London, EC1A 2GF</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">
+                                    <a href="">Arrowbank Prepatory</a>
+                                </th>
+                                <td class="govuk-table__cell ">1028311</td>
+                                <td class="govuk-table__cell ">Smithson Grange, London, SW1A 3AW</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter"></div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "pupils" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Pupil information</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+<form method="post" action="/cif-4-add">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pupil-name">
+      Pupil name
+    </label>
+        <input class="govuk-input govuk-!-width-one-third" id="pupil-name" name="pupilName" type="text">
+      </div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="dob-hint">
+    <legend class="govuk-fieldset__legend">
+      Date of birth 
+    </legend>
+    <div id="dob-hint" class="govuk-hint">
+      For example, 27 3 2008
+    </div>
+    <div class="govuk-date-input" id="dob">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dobday" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dobmonth" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="dob-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dobyear" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend">
+        Which school or college do they attend?
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value=" Coppice School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation">
+          Coppice School
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="Beechnut School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+          Beechnut School
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="Oakwood School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-3">
+          Oakwood School
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-4" name="organisation" type="checkbox" value="Tudor Science Academy">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-4">
+          Tudor Science Academy
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-5" name="organisation" type="checkbox" value=" Meadowbank High School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-5">
+          Meadowbank High School
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-6" name="organisation" type="checkbox" value="King George V High School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-6">
+         King George V High School
+        </label>
+      </div>
+
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-7" name="organisation" type="checkbox" value="King George V High School">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-7">
+         King George V High School
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+ <button type="submit" class="govuk-button" data-module="govuk-button">
+  Add pupil
+</button>
+
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Guidance for how to calculate the funding.</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Resource management" %}
+{% set pageName = "Resource management" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "overview" %}
+
+{% block hero %}
+  {% include './_resource_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+
+       <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Your tasks</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/trust">My tasks</a>
+            </li>
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/trust-all">Everyone's tasks</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+         <p>No tasks to show</p>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+      {% include './_cta_updated_guidance.html'%}
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% set primaryLinks = [
+  {
+    "url": "/overview",
+    "label": "Overview"
+  }, {
+    "url": "/finance",
+    "label": "Finance"
+  }, {
+    "url": "/",
+    "label": "Buildings"
+  }, {
+    "url": "/data",
+    "label": "Data"
+  }
+] %}
+
+{% if trust == true %}
+{% set primaryLinks = [
+  {
+    "url": "/trust",
+    "label": "Overview"
+  }, {
+    "url": "/schools",
+    "label": "Schools"
+  }, {
+    "url": "/resources",
+    "label": "People"
+  },{
+    "url": "/finance",
+    "label": "Funding"
+  }, {
+    "url": "/compliance",
+    "label": "Compliance"
+  }, {
+    "url": "/owl",
+    "label": "Ask Owl"
+  }
+] %}
+{% endif %}
+
+<div class="dfe-new-header {% if owl == true%} owl-border{% endif%}">
+  <div class="dfe-new-header--logo-strip">
+    <div class="dfe-new-header--logo-strip__inner">
+      <a href="/"><div class="dfe-new-header--logo-strip__inner__logo">
+       <img src="/assets/images/inline-logo-white.png" alt="Department for Education" class="default-logo">
+       
+      </div></a>
+      <div class="dfe-new-header--logo-strip__user-actions">
+        <ul>
+          <li>
+            <a href="/messages" title="Go to the Department for Education website">Messages <span class="notify">3</span></a>
+          </li>
+          <li>
+            <a href="/support" title="Go to the Department for Education website">Help</a>
+          </li>
+          <li>
+            <a href="/profile" title="Go to the Department for Education website">Profile</a>
+          </li>
+          <li>
+            <a href="/sso" title="Go to the Department for Education website">Sign out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {# <div class="dfe-new-header--services-panel" id="dfe-new-header--services">
+      <div class="govuk-width-container dfe-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for schools</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for parents</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+            <h2 class="govuk-heading-m">Services for learners</h2>
+            <ul class="govuk-list govuk-list--spaced">
+              <li>
+                <a href="https://design.education.gov.uk" target="_blank">Design Manual</a>
+              </li>
+              <li>
+                <a href="https://user-research.education.gov.uk" target="_blank">User Research Manual</a>
+              </li>
+              <li>
+                <a href="https://apply-the-service-standard.education.gov.uk" target="_blank">Apply the Service Standard Manual</a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-grid-column-one-third">
+
+              <p class=""><a href="" class="govuk-link govuk-link--inverse">More DfE services</a></p>
+
+          </div>
+        </div>
+      </div>
+    </div> #}
+  </div>
+  <div class="dfe=new-header--service-strip">
+    <div class="dfe-new-header--service-strip__inner">
+      <div class="dfe-new-header--service-strip__inner__service-name" style="flex: auto;">
+        <a href="/trust" title="Go to the service homepage">School Account</a>
+      </div>
+{% if hide_nav !== true %}
+<div class="school-selector" tabindex="0"style=" ">
+        <span class="school-selector--current" onclick="toggleDropdown()" >Arden Multi Academy Trust</span>
+        <div id="school-dropdown" class="school-selector--dropdown">
+      
+          <ul>
+            <li>
+              <a href="">Coppice School</a>
+            </li>
+            <li>
+              <a href="">Beechnut School</a>
+            </li>
+            <li>
+              <a href="">Oakwood School</a>
+            </li>
+            <li>
+              <a href="">Tudor Science Academy</a>
+            </li>
+            <li>
+              <a href="">Meadowbank High School</a>
+            </li>
+            <li>
+              <a href="">King George V High School</a>
+            </li>
+            <li>
+              <a href="/selector">Arrowbank Prepatory</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      
+      {% endif %}
+    </div>
+  </div>
+  {% if hide_nav !== true %}
+    <nav class="dfe-new-header--nav-strip">
+      <div class="dfe-new-header--nav-strip__inner">
+        <ul>
+          {% for link in primaryLinks %}
+
+            <li>
+              <a href="{{ link.url }}" class=" {% if selectedNav === link.label %}dfe-new-header--nav-strip__inner--active{% endif %} {% if link.label === 'Ask Owl'%}owl-nav{% endif %}">{{ link.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  {% endif %}
+</div>
+<script>
+  function toggleDropdown() {
+    var dropdown = document.getElementById('school-dropdown');
+    var current = document.querySelector('.school-selector--current');
+
+    var isVisible = dropdown.style.display === 'block';
+    dropdown.style.display = isVisible
+      ? 'none'
+      : 'block';
+    current
+      .classList
+      .toggle('active', !isVisible);
+  }
+
+  // Close the dropdown if clicked outside
+  document.addEventListener('click', function (event) {
+    var schoolSelector = document.querySelector('.school-selector');
+    var dropdown = document.getElementById('school-dropdown');
+
+    // Check if the clicked area is outside the school selector
+    if (!schoolSelector.contains(event.target)) {
+      dropdown.style.display = 'none';
+      schoolSelector
+        .querySelector('.school-selector--current')
+        .classList
+        .remove('active');
+    }
+  });
+
+  // Add keydown event listener for keyboard accessibility
+  document
+    .querySelector('.school-selector')
+    .addEventListener('keydown', function (event) {
+      if (event.keyCode === 13) { // 13 is the Enter key
+        toggleDropdown();
+      }
+    });
+</script>

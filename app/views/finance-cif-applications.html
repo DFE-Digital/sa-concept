@@ -1,0 +1,49 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "applications" %}
+
+{% block hero %}
+  {% include './_finance_cif_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Application guidance</h2>
+
+      <p>Success rate is around 60% of all applications and the reasons for not being successful can include:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a larger than expected number of applications competing for limited funding</li>
+        <li>the quality of the applications</li>
+        <li>applications that don't align to the priorities </li>
+        <li>weak or little supporting evidence</li>
+      </ul>
+
+      <p>It is important that you read the guidance and supporting information before you start your application.</p>
+
+      <h2 class="govuk-heading-l">Things to consider when completing your application</h2>
+
+      <h3 class="govuk-heading-m">Demonstrating quality candidates</h3>
+      <p class="govuk-body">Clearly showing that there are pupils with exceptional digital skills and literacy.</p>
+
+      <h3 class="govuk-heading-m">Strong supporting evidence</h3>
+      <p class="govuk-body">Include robust evidence such as work experience feedback, exam or test results, and work demonstrating digital skills.</p>
+
+      <h3 class="govuk-heading-m">Clear and detailed application</h3>
+      <p class="govuk-body">Ensure your application is clear, well-structured, and comprehensive, covering the scope, objectives, and outcomes.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-half"></div>
+
+  </div>
+
+{% endblock %}

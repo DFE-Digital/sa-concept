@@ -1,0 +1,162 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Payments" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "payments" %}
+
+{% block hero %}
+  {% include './_finance_header.html'%}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter"></div>
+    <div class="govuk-grid-column-three-quarters">
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-0">Payment history</h2>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Purpose</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Reference</th>
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Credit £</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Debit £</th>
+            <th scope="col" class="govuk-table__header ">Status</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row" data-row="1">
+            <th scope="row" class="govuk-table__header">
+              <a href="#" class="govuk-link" onclick="toggleRow(1)">
+                <i class="fa-solid fa-plus govuk-!-margin-right-2"></i>
+                <i class="fa-solid fa-minus govuk-!-margin-right-2" style="display:none"></i> School capital funding
+            </a>
+            </th>
+            <td class="govuk-table__cell">SCF-2023-5824</td>
+            <td class="govuk-table__cell">17 Sep 2023</td>
+            <td class="govuk-table__cell govuk-table__header--numeric">£67,597</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag">Processing</strong>
+            </td>
+          </tr>
+                    <tr class="govuk-table__row" style="display:none" data-row="1-info">
+            <td class="govuk-table__cell govuk-!-padding-left-6" colspan="6">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Receiving account
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      Lloyds Bank - Arden Multi-Academy Trust Account (ending ****1122)
+    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Transaction reference
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      LLOY2837239344
+    </dd>
+                </div>
+                    <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Transaction date and time
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      17 Sep 2023, 00:01
+    </dd>
+                </div>
+
+              </dl>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" data-row="2">
+            <th scope="row" class="govuk-table__header">
+              <a href="#" class="govuk-link" onclick="toggleRow(2)">
+                <i class="fa-solid fa-plus govuk-!-margin-right-2"></i>
+                <i class="fa-solid fa-minus govuk-!-margin-right-2" style="display:none"></i> Return of unused funds
+            </a>
+            </th>
+            <td class="govuk-table__cell">R-SCF-2022-1244</td>
+            <td class="govuk-table__cell">27 Apr 2023</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell govuk-table__header--numeric">£5,827</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green">Complete</strong>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row" style="display:none" data-row="2-info">
+            <td class="govuk-table__cell govuk-!-padding-left-6" colspan="6">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Receiving account
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      Barclays Bank - ESFA Account (ending ****5172)
+    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Transaction reference
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      BARC92EUYD83D
+    </dd>
+                </div>
+                    <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+      Transaction date and time
+    </dt>
+                  <dd class="govuk-summary-list__value">
+      27 Apr 2023, 00:01
+    </dd>
+                </div>
+
+              </dl>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <script>
+        function toggleRow(rowNumber) {
+          // Toggle the visibility of the plus and minus icons in the clicked row
+          var plusIcon = document.querySelector('tr[data-row="' + rowNumber + '"] .fa-plus');
+          var minusIcon = document.querySelector('tr[data-row="' + rowNumber + '"] .fa-minus');
+          var plusIconStyle = getComputedStyle(plusIcon);
+
+          if (plusIconStyle.display === 'none') {
+            plusIcon.style.display = 'inline';
+            minusIcon.style.display = 'none';
+          } else {
+            plusIcon.style.display = 'none';
+            minusIcon.style.display = 'inline';
+          }
+
+          // Toggle the visibility of the corresponding data-row
+          var dataRow = document.querySelector('tr[data-row="' + rowNumber + '-info"]');
+          if (dataRow) {
+            dataRow.style.display = (dataRow.style.display === 'none' || dataRow.style.display === '')
+              ? 'table-row'
+              : 'none';
+          }
+        }
+      </script>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

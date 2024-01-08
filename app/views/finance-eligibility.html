@@ -1,0 +1,111 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "eligibility" %}
+
+{% block hero %}
+  {% include './_finance_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-2">Eligible funding</h2>
+
+      <p class="govuk-body">We have identified that you're eligible for the following funding options.</p>
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <div class="dfe-grid-container dfe-grid-container--wider govuk-!-margin-top-7">
+
+        <div class="dfe-card">
+          <div class="dfe-card-container">
+            <h2 class="govuk-heading-m">
+              <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="/finance-cif">Future Digital Leaders Fund</a>
+            </h2>
+            <div class="card-meta">
+              <p class="govuk-body">Funding available for 15 to 18 year olds to learn the skills to become digital leaders of the future.</p>
+
+            </div>
+            <p class="govuk-body">
+              <i class="fa-regular fa-circle-right"></i> View criteria and apply online.</p>
+
+          </div>
+        </div>
+
+        <div class="dfe-card">
+          <div class="dfe-card-container">
+            <h2 class="govuk-heading-m">
+              <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="#">Pupil premium grants</a>
+            </h2>
+            <div class="card-meta">
+              <p class="govuk-body">For raising attainment based on the number of disadvantaged pupils at a school.</p>
+
+            </div>
+            <p class="govuk-body">
+              <i class="fa-regular fa-circle-right"></i> View criteria and apply online.</p>
+          </div>
+        </div>
+
+        <div class="dfe-card">
+          <div class="dfe-card-container">
+            <h2 class="govuk-heading-m">
+              <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="#">Services premium</a>
+            </h2>
+            <div class="card-meta">
+              <p class="govuk-body">Receive £310 per pupil with a parent or carer in the armed forces to support pastoral care.</p>
+              <p>The recent census return shows 7 pupils that meet this criteria where funding hasn't been allocated.</p>
+
+            </div>
+            <p class="govuk-body">
+              <i class="fa-regular fa-circle-right"></i> View criteria and apply online.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-l govuk-!-margin-bottom-2 govuk-!-margin-top-9">Additional checks needed</h2>
+
+      <p class="govuk-body">You could be entitled to additional funding by providing additional evidence.</p>
+      <hr class="govuk-section-break govuk-section-break--visible">
+
+      <div class="dfe-grid-container dfe-grid-container--wider govuk-!-margin-top-7">
+
+        <div class="dfe-card">
+          <div class="dfe-card-container">
+            <h2 class="govuk-heading-m">
+              <a class="govuk-link govuk-link--no-visited-state dfe-card-link--header" href="#">The PE and sport premium</a>
+            </h2>
+            <div class="card-meta">
+              <p class="govuk-body">Money to primary schools to improve the quality of the PE and sports activities they offer their pupils.</p>
+              <p class="govuk-body">
+                <i class="fa-regular fa-circle-right"></i> Check eligibility</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+
+       <aside class="dfe-aside">
+                    <h2 class="govuk-heading-m">Related guidance</h2>
+                    <ul class="govuk-list govuk-list--spaced">
+                        <li>
+                            <a href="#" target="_blank">How we determine funding eligibility</a>
+                        </li>
+                    </ul>
+                </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

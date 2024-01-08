@@ -1,0 +1,78 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Overview" %}
+{% set pageName = "Trust Overview" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% block hero %}
+  {% include './_mat_header.html'%}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row  govuk-!-margin-top-">
+    <div class="govuk-grid-column-three-quarters">
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Your tasks</h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/trust">My tasks</a>
+            </li>
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link govuk-link--no-visited-state" href="/trust-all">Everyone's tasks</a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Action</th>
+                <th scope="col" class="govuk-table__header">Details</th>
+                <th scope="col" class="govuk-table__header">Assigned to</th>
+                <th scope="col" class="govuk-table__header">Due</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+     <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <a href="/finance-project" class="govuk-link">Monthly project update</a>
+                </th>
+                <td class="govuk-table__cell">Coppice School - Science block refurb</td>
+                <td class="govuk-table__cell">Jill Smith</td>
+                <td class="govuk-table__cell">29 Jan 2024</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <a href="/school-detail-update" class="govuk-link">Provide Companies House number</a>
+                </th>
+                <td class="govuk-table__cell">Tudor Science Academy</td>
+                <td class="govuk-table__cell">Jill Smith</td>
+                <td class="govuk-table__cell">31 Mar 2024</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {% include './_upcoming.html'%}
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+
+        {% include './_cta_app.html'%}
+
+      {% include './_cta_finance_eligibility.html'%}
+
+      {% include './_cta_forum.html'%}
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

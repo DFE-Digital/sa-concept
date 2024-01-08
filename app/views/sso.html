@@ -1,0 +1,67 @@
+{% extends "layouts/public-signin.html" %}
+
+{% set selectedNav = "Features" %}
+{% set pageName = "Features" %}
+{% set pageDescription = "" %}
+
+{% block content %}
+
+    <section class="sign-in-page">
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+                <div class="middle-panel">
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-full">
+
+                            <img src="/assets/images/dfe-logo-alt.png" style="height: 90px; margin-bottom: 40px;">
+
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+
+                            <h1 class="govuk-heading-l">DfE One Account</h1>
+
+                            <p class="govuk-body-l">You're signing into the One School Account service.</p>
+                            <p>You can find out more about this service on the <br/>
+                                <a href="/">One School Account</a> website.</p>
+
+                        </div>
+                        <div class="govuk-grid-column-one-half">
+
+                            <form class="sign-in-form">
+                                <a href="/trust" class="dfe-sso-panel-link">
+                                    <div class="dfe-sso-panel">
+                                        <div class="icon">
+                                            <i class="fa-regular fa-circle-user"></i>
+                                        </div>
+                                        <div class="name">
+                                            <h2 class="govuk-heading-m govuk-!-margin-bottom-0"> Jill Smith</h2>
+                                            <p  class="govuk-!-margin-bottom-0 govuk-body govuk-body-s" >jill.smith@ardenacademy.ac.uk</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="sign-in-links">
+                                    <p class="govuk-!-margin-top-4">
+                                        <a href="/" class="govuk-link">
+                                            <i class="fa-solid fa-arrow-right-from-bracket"></i> sign out of all accounts</a>.</p>
+                                    <p class="govuk-!-margin-top-4">
+                                        <a href="/sign-in" class="govuk-link">
+                                            <i class="fa-solid fa-circle-plus"></i>Add another account</a>.</p>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

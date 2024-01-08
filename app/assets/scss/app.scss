@@ -1,0 +1,57 @@
+@import "node_modules/govuk-frontend/dist/govuk/all";
+@import 'node_modules/dfe-frontend-alpha/packages/dfefrontend';
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx) {
+  .govuk-width-container {
+    max-width: 1200px !important;
+
+    @include govuk-media-query($from: desktop) {
+      max-width: 1200px !important;
+    }
+  }
+}
+
+.govuk-width-container {
+  max-width: 1200px !important;
+
+  @include govuk-media-query($from: desktop) {
+    max-width: 1200px !important;
+  }
+}
+
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+span,
+div,
+table,
+th,
+td,
+blockquote,
+li,
+tr {
+  font-family:
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    Cantarell,
+    'Helvetica Neue',
+    sans-serif !important;
+}
+
+
+

@@ -1,0 +1,46 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "overview" %}
+
+{% block hero %}
+  {% include './_finance_cif_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Overview</h2>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+      <p class="govuk-body">The Future Digital Leaders Fund provides money to schools, academies and sixth-form colleges which is used to support pupils who demonstrate exceptional digital skills and knowledge.</p>
+
+      <p class="govuk-body">The fund is available to schools, academies and sixth-form colleges in England. It is not available to independent schools.</p>
+
+      <p class="govuk-body">You can apply for a total of £25,000 in your application, and nominate a maximum of 10 pupils.</p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-quarter">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href=" https://www.gov.uk/guidance/" target="_blank">Future Digital Leaders Fund on GOV.UK</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

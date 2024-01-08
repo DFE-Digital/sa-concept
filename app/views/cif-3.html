@@ -1,0 +1,60 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+{% set cif = "app" %}
+{% set view = "amount" %}
+
+{% block hero %}
+  {% include './_finance_cif_app_header.html'%}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-l">Application amount and breakdown</h2>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/cif-3" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="amount">
+      How much do you want to apply for?
+    </label>
+          <div id="event-name-hint" class="govuk-hint">
+    You can apply for a maximum of £25,000.
+  </div>
+          <div class="govuk-input__wrapper">
+            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+            <input class="govuk-input govuk-input--width-10" id="amount" name="amount" type="text" spellcheck="false" value="{{data['amount']}}">
+          </div>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+      </form>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="dfe-aside">
+        <h2 class="govuk-heading-m">Related guidance</h2>
+        <ul class="govuk-list govuk-list--spaced">
+          <li>
+            <a href="/finance-cif" target="_blank">Guidance for how to calculate the funding.</a>
+          </li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+{% endblock %}

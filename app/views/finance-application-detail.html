@@ -1,0 +1,262 @@
+{% extends "layouts/admin.html" %}
+
+{% set selectedNav = "Funding" %}
+{% set pageName = "Finance" %}
+{% set pageDescription = "" %}
+{% set trust = true %}
+
+{% set view = "application" %}
+
+{% block hero %}
+  <div class="dfe-page-header">
+    <div class="govuk-width-container dfe-width-container dfe-width-container-fluid">
+
+      <a href="/finance" class="govuk-back-link">Back to your applications</a>
+
+      <div class="govuk-grid-row govuk-!-margin-top-4">
+
+        <div class="govuk-grid-column-full">
+
+          <span class="govuk-caption-l">Application</span>
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">School capital funding 2023 to 2024</h1>
+
+          <table class="govuk-table govuk-!-margin-bottom-5">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Status</th>
+                <th scope="col" class="govuk-table__header">Amount</th>
+                <th scope="col" class="govuk-table__header">Reference</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">
+                  <strong class="govuk-tag">Processing</strong>
+                </th>
+                <td class="govuk-table__cell">£67,597</td>
+                <td class="govuk-table__cell">SCF-2023-5824</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <nav class="app-sub-navigation govuk-!-margin-bottom-0" aria-label="Application menu">
+            <ul class="app-sub-navigation__list">
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link" {% if view === 'overview' %} aria-current="page" {% endif %} href="/finance-application">Overview and actions</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'eligibility' %} aria-current="page" {% endif %}href="/finance-application-eligibility">Eligibility</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'application' %} aria-current="page" {% endif %}href="/finance-application-detail">Application</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'submission' %} aria-current="page" {% endif %}href="/finance-application-approval">Approvals and submission</a>
+              </li>
+              <li class="app-sub-navigation__item">
+                <a class="app-sub-navigation__link"  {% if view === 'outcome' %} aria-current="page" {% endif %}href="/finance-application-outcome">Outcome</a>
+              </li>
+
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-quarter">
+
+      {% include './_app_timeline.html' %}
+
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+
+      <h2 class="govuk-heading-l">Application information</h2>
+
+      <p>If any additional information is needed, we will contact you by email. A task will also show on the <a href="/finance-application">application overview</a> page.</p>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Eligibility criteria</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Schools in trust
+        </dt>
+              <dd class="govuk-summary-list__value">
+          7
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Latest opening date of school
+        </dt>
+              <dd class="govuk-summary-list__value">
+          2005
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Total pupils
+        </dt>
+              <dd class="govuk-summary-list__value">
+          4,653
+        </dd>
+
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Amount applied for
+        </dt>
+              <dd class="govuk-summary-list__value">
+          £67,597
+        </dd>
+
+            </div>
+
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Purpose of application</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Details
+        </dt>
+              <dd class="govuk-summary-list__value">
+          The funds will be used to contribute to the replacement of 20 windows to one building and the replacement of a 50 sqm roof to another building.
+        </dd>
+
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          Have quotes been received
+        </dt>
+              <dd class="govuk-summary-list__value">
+          Yes
+        </dd>
+
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Schools benefiting from funding</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+          School 1
+        </dt>
+              <dd class="govuk-summary-list__value">
+                <p>Coppice School<p>
+          URN: 1001673<br/>
+          Address: Wood Lane, London, WC1A 1JH
+        </dd>
+
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+          School 2
+        </dt>
+                  <dd class="govuk-summary-list__value">
+                    <p>Oakwood School<p>
+          URN: 1023531<br/>
+          Address: Riverbank Street, London, E16 1DA
+        </dd>
+
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">Supporting information</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Document
+        </dt>
+                      <dd class="govuk-summary-list__value">
+          Quote from Roofing company<br/>
+          PDF - 1.2MB
+        </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">View</a>
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Document
+        </dt>
+                      <dd class="govuk-summary-list__value">
+          Quote from Window company<br/>
+          PDF - 1.1MB
+        </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">View</a>
+                      </dd>
+                    </div>
+
+                  </dl>
+                </div>
+
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">Application confirmation</h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Application confirmed by
+        </dt>
+                      <dd class="govuk-summary-list__value">
+          Jill Smith
+        </dd>
+
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+          Confirmation date
+        </dt>
+                      <dd class="govuk-summary-list__value">
+          15 September 2023 at 9:46am
+        </dd>
+
+                    </div>
+
+                  </dl>
+                </div>
+
+              </div>
+
+            </div>
+
+          {% endblock %}
