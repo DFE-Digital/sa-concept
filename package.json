@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon",
+    "start": "node app.js",
     "start-browser-sync": "browser-sync start --proxy 'localhost:3000' --files 'public/**/*.*'",
     "dev": "npm-run-all --parallel start start-browser-sync"
   },
